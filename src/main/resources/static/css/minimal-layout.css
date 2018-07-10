@@ -1,0 +1,68 @@
+.minimal-layout {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+@media (min-width: 540px) {
+  .minimal-layout {
+    background: #495a6b url("../img/jumbo-bg.jpg") no-repeat 50% 50%/cover;
+    background-attachment: fixed;
+    background-image: url("../../img/jumbo-bg.jpg");
+  }
+}
+
+.minimal-layout .site-header {
+  padding: 0;
+  background: #455565;
+}
+
+@media (min-width: 1200px) {
+  .minimal-layout .site-header {
+    position: fixed;
+    background: transparent;
+    margin-top: 80px;
+  }
+}
+
+.minimal-layout .page-wrapper {
+  flex: 1 0 auto;
+  display: flex;
+  flex-direction: column;
+}
+
+@media (min-width: 540px) {
+  .minimal-layout .page-wrapper {
+    padding: 80px 0;
+  }
+}
+
+.minimal-layout .panel {
+  flex: 1 0 auto;
+  margin: auto;
+  width: 100%;
+  max-width: 540px;
+  box-shadow: none;
+}
+
+@media (min-width: 540px) {
+  .minimal-layout .panel {
+    flex: 0 0 auto;
+  }
+}
+
+.minimal-layout .panel form {
+  padding-top: 5px;
+}
+
+.minimal-layout .site-footer {
+  flex: 0 0 auto;
+}
+
+@media (min-width: 540px) {
+  .minimal-layout .site-footer {
+    background-color: rgba(255, 255, 255, 0.666);
+  }
+}
+
+/*# sourceMappingURL=minimal-layout.css.map */

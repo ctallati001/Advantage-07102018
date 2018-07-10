@@ -1,0 +1,34 @@
+.panel-heading-solid {
+  padding: 30px;
+  background: #eaebea;
+}
+
+.responsive-recaptcha {
+  text-align: center;
+  font-size: 0;
+}
+
+.responsive-recaptcha .g-recaptcha {
+  display: inline-block;
+}
+
+.responsive-recaptcha .help-block {
+  margin-left: auto;
+  margin-right: auto;
+  width: 304px;
+}
+
+@media (max-width: 479px) {
+  .responsive-recaptcha .g-recaptcha {
+    transform: scale(0.65);
+    margin-left: -100%;
+    position: relative;
+    left: 50%;
+    top: 15px;
+  }
+  .responsive-recaptcha .help-block {
+    width: 198px;
+  }
+}
+
+/*# sourceMappingURL=login-register.css.map */

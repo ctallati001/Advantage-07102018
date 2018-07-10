@@ -1,0 +1,215 @@
+ 
+ <!DOCTYPE html>
+<html class="desktop-menu-open" lang="en" ng-app="myApp">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>Dimension Data | Advantage</title>
+  <!-- meta name="description" content="Description of the page less than 150 characters" --> <!-- meta description -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,300i,400,400i,700,700i">
+  <link rel="stylesheet" href="css/dd-adv-global.css">
+      <link rel="stylesheet" href="css/dashboard.css">
+    <style>
+    .page-wrapper {padding-top:10px !important}
+    </style>
+  <!-- link rel="stylesheet" href="css/app.min.css" --> <!-- your own stylesheet here -->
+  <link rel="apple-touch-icon" sizes="180x180" href="https://basecoat.cdn.dimensiondata.com/2.1.0/img/favicon/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="https://basecoat.cdn.dimensiondata.com/2.1.0/img/favicon/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="https://basecoat.cdn.dimensiondata.com/2.1.0/img/favicon/favicon-16x16.png">
+  <link rel="mask-icon" href="https://basecoat.cdn.dimensiondata.com/2.1.0/img/favicon/safari-pinned-tab.svg" color="#72bf44">
+  <link rel="shortcut icon" href="https://basecoat.cdn.dimensiondata.com/2.1.0/img/favicon/favicon.ico">
+  <link rel="manifest" href="manifest.json">
+      <link rel="stylesheet" href="css/equalize.css">
+    <link rel="stylesheet" href="css/registration-process.css">
+  <meta name="theme-color" content="#ffffff">
+      
+</head>
+
+<body ng-controller="loginCtrl">
+    <header class="site-header">
+<nav class="navbar"> <!-- IMPORTANT: add the class `navbar-fixed-top` to position it at the top of the window -->
+
+  <!-- Left utility nav -->
+  <ul class="nav navbar-nav navbar-left">
+    <!-- Desktop menu toggle -->
+    <li class="desktop-menu-toggle hidden-mobile">
+      <a href="#" data-toggle="desktop-menu" title="Desktop menu">
+        <div class="hidden-closed">Close</div>
+        <div class="hidden-opened"></div>
+      </a>
+    </li>
+    <li>
+      <!-- Company logo -->
+      <a class="horizontal-logo" href="index.html" title="Return home">
+        <div class="logo-image" title="Dimension Data"></div>
+        <div class="logo-title"><span style="font-size:18px !important">ADVANTAGE</span></div>
+      </a>
+    </li>
+  </ul>
+
+  <!-- Center utility nav -->
+  <!-- ul class="nav navbar-nav navbar-center"></ul -->
+
+  <!-- Right utility nav -->
+  <ul class="nav navbar-nav navbar-right">
+    <li class="hidden-mobile">
+      <!-- Plain text link -->
+      <a href="#">Support</a>
+    </li>
+      <li class="hidden-mobile">
+      <!-- Plain text link -->
+      <a href="#">Contact</a>
+    </li>
+    <!-- Divider -->
+    <li role="separator" class="divider hidden-mobile"></li>
+    <!-- Dropdown menu -->
+    <li class="dropdown hidden-mobile">
+      <a href="#" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" class="dropdown-toggle">
+        <span class="fa fa-user"></span> Login In <span class="caret"></span>
+      </a>
+
+    </li>
+    <!-- Divider -->
+    <li role="separator" class="divider hidden-mobile"></li>
+
+    <!-- Divider -->
+    <li role="separator" class="divider hidden-mobile"></li>
+    <li class="hidden-mobile">
+      <!-- Client logo -->
+      <div class="horizontal-logo" ng-if="profile.userType == 'client' ">
+        <!-- img should be wider than it is high (approx 4:1) and 24px (at least) in height -->
+        <a href="login.html"><img src="img/oracle-logo.gif" alt="Company name" class="hidden-dark"/></a>
+        <img src="img/oracle-logo.gif" alt="Company name" class="hidden-light"/>
+        <!-- a css background-image lets you to control the logo image using media queries or stylesheets (in case of switching themes) -->
+        <!-- div class="logo-image" title="Company name" style="background-image: url(img/client-logo.png)"></div -->
+      </div>
+    </li>
+    <!-- Mobile menu toggle -->
+    <li class="mobile-menu-toggle hidden-desktop" data-toggle="mobile-menu" title="Mobile menu">
+      <button type="button" class="navbar-btn btn"><i aria-hidden="true" class="fa fa-bars"></i></button>
+    </li>
+  </ul>
+</nav>
+
+
+ </header>
+  <div class="desktop-menu-layout mobile-menu-layout">
+
+    <div class="desktop-menu">
+<div class="desktop-menu">
+  <div class="content">
+    <!-- <nav class="scrollbars scrollbars-light">
+      <ul class="nav" data-accordion-group>
+        <li><a class="next collapsed" data-toggle="collapse">Dashboard</a>
+          <ul class="collapse">
+            <li><a href="index.html">Overview</a></li>
+          </ul>
+        </li>
+        <li><a class="next collapsed" data-toggle="collapse">Manage Assets</a>
+          <ul class="collapse">
+            <li><a href="asset-manage.html">Search & Manage</a></li>
+          </ul>
+        </li>
+        <li><a class="next collapsed" data-toggle="collapse">Reports</a>
+          <ul class="collapse">
+            <li><a href="reports-overview.html">Saved Reports</a></li>
+      <li><a href="reports-admin.html">Admin Reports & Templates</a></li>
+          </ul>
+        </li>
+        <li><a class="next collapsed" data-toggle="collapse">User Preferences</a>
+          <ul class="collapse">
+            <li><a href="user-pref.html">Settings</a></li>
+          </ul>
+        </li>
+      </ul>
+    </nav> -->
+  </div>
+</div>
+
+
+  </div>
+  <div class="registration-page sticky-footer-layout"> 
+      <main class="page-wrapper">
+        <div class="container-lg">
+          <div class="row">
+            <div class="col-xs-12">
+              <h1 class="main-heading bottom-gutter">Advantage</h1>
+      
+              <div class="nav-tabs-responsive scrollbars">
+                <ul class="nav nav-tabs nav-justified progress-steps" data-progress-steps="linear" data-registration-steps>
+                  <li class="active"><a data-toggle="tab" href="#step1"><span class="progress-step">Login to your account</span></a></li>
+
+                </ul>
+              </div>
+              <div class="tab-content">
+      
+                <div id="step1" class="tab-pane fade in active">
+                  <div class="row row-equalize equalize-md-up">
+      
+                    <div class="col-xs-12 col-md-4 col-lg-5 col-xl-6 no-padding">
+                      <div class="image-pane equalize icon-network"><img src="img/dd-network.svg"></div>
+                    </div>
+      
+                    <div class="col-xs-12 col-md-8 col-lg-7 col-xl-6 no-padding">
+                      <div class="content-pane equalize">
+                       <!--  <form  role="form" action="/doLogin"  method="post" data-validation-example> -->
+                     <form data-validation-example>
+                          
+                          <div class="row no-gutter">
+                            <div class="col-xs-12 form-area">
+      
+                              <h3>Sign In</h3>
+                              <div class="form-group has-icon">
+                                <label class="control-label" for="registerUsername">Username</label>
+                               <input type="text" placeholder="Enter your email address" class="form-control" ng-model="userName" id="username" name="username" required>
+                                <span class="form-control-feedback fa-user"></span>
+                              </div>
+      
+                              <div class="form-group has-icon has-password-toggle">
+                                <label class="control-label" for="registerPassword">Password <span class="info"><span></label>
+                                <div class="control-wrapper"> <!-- use this .control-wrapper when .control-label is long enough to wrap onto multiple lines -->
+                                   <input type="password"  ng-model="password" placeholder="Enter your password" class="form-control" id="password" name="password" required>
+                                  <span class="password-toggle"></span>
+                                  <span class="form-control-feedback fa-lock"></span>
+                                </div>
+                              </div>
+      
+                            </div>
+                            <div class="col-xs-12">
+                                <button type="submit" class="btn btn-block btn-primary bottom-gutter" ng-click="loginAPICall()">Continue
+                                </button>
+                            </div>
+                          </div>
+                        </form>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+      
+
+
+                  </div>
+                </div>
+
+      
+              </div>
+      
+            </div>
+          </div>
+        </div>
+      </main>
+    <footer class="site-footer">
+    <p>&copy; Copy Right Reserved for DimensionData.com</p>
+    </footer>
+    <!-- <div class="mobile-menu">
+      <p>see the <a href="#">mobile-menu example</a>.</p>
+    
+    </div> -->
+ 
+</body>
+
+</html>
+
+
+ 

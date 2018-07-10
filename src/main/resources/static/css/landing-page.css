@@ -1,0 +1,22 @@
+.page-wrapper {
+  padding-top: 40px ;
+  padding-bottom: 40px ;
+}
+
+@media (min-width: 768px) {
+  .page-wrapper {
+    padding-top: 80px ;
+  }
+}
+
+@media (min-width: 768px) {
+  .page-wrapper {
+    padding-bottom: 80px ;
+  }
+}
+
+.panel .btn-list {
+  margin-bottom: 0.75em;
+}
+
+/*# sourceMappingURL=landing-page.css.map */

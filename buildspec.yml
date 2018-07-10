@@ -1,0 +1,29 @@
+version: 0.1
+
+environment_variables:
+  plaintext:
+    JAVA_HOME: "/usr/lib/jvm/java-8-openjdk-amd64"
+
+phases:
+  install:
+    commands:
+      - apt-get update -y
+      - apt-get install -y maven
+      - apt-get install -y docker
+  pre_build:
+    commands:
+      - echo Nothing to do in the pre_build phase...
+  build:
+    commands:
+      - echo Build started on `date`
+      - mvn package install
+      - docker build -t jdevhari/biddinghub .
+  post_build:
+    commands:
+      - echo Build completed on `date`
+      - docker login -e $DOCKER_EMAIL -u $DOCKER_USER -p $DOCKER_PASS
+      - docker push jdevhari/biddinghub
+artifacts:
+  files:
+    - target/biddinghub-1.0.0.jar
+  discard-paths: yes

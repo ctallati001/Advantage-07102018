@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+<head>
+<meta charset="utf-8">
+<base href="/">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dimension Data</title>
+
+<link rel="stylesheet"
+	href="bower_components/angular-ui-clock/dist/angular-clock.css">
+<link rel="stylesheet"
+	href="bower_components/bootstrap/dist/css/bootstrap.min.css">	
+
+<link href='css/assetmanage.css' rel='stylesheet' />
+<link href='css/dashboard.css' rel='stylesheet' />
+<link href='css/dd-adv-global.css' rel='stylesheet' />
+<link href='css/equalize.css' rel='stylesheet' />
+<link href='css/landing-page.css' rel='stylesheet' />
+<link href='css/login-register.css' rel='stylesheet' />
+<link href='css/minimal-layout.css' rel='stylesheet' />
+<link href='css/registration-process.css' rel='stylesheet' />
+<link href='css/ngDialog.css' rel='stylesheet' />
+<link href='css/ngDialog-theme-default.css' rel='stylesheet' />
+  <link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-select/0.11.2/select.css"/>	
+	 
+<!-- 
+
+<link href='css/full-calendar.print.css' rel='stylesheet' media='print' />
+<link href='css/year/year.css' rel='stylesheet' />
+<link rel="stylesheet" href="https://trial.mobiscroll.com/bae09751/mobiscroll.angular.min.css">
+<link rel="stylesheet" href="css/sweetalert.css">
+<link rel="stylesheet"
+	href="bower_components/bootstrap-datepicker/css/bootstrap-datepicker3.css">
+<link rel="stylesheet"
+	href="bower_components/bootstrap-datetimepicker/bootstrap-datetimepicker.css">
+<link rel="stylesheet" href="css/jquery.chosen.css">
+ -->
+
+<!-- <link rel="stylesheet" href="skin/inspinia/css/style.css"> -->
+<style type="text/css">
+.demo-display {
+	padding: 0 !important;
+}
+
+.md-cal-display .md-desc {
+	padding-top: 3em;
+}
+
+.md-hidden {
+	display: none !important;
+}
+</style>
+</head>
+<body ng-controller="mainCtrl" ng-cloak style="width: 100%">
+	<div id="wrapper">
+		
+									
+									
+									
+									<!-- <div class="row profile">
+										<a href="/#/profile"> <img alt="image"
+											class="img-circle pull-left"
+											ng-if="profile.aaID  == 'A111111'" src="img/profile/a6.jpg"
+											style="width: 50px" /> <img alt="image"
+											class="img-circle pull-left"
+											ng-if="profile.aaID == 'A999999'" src="img/profile/a10.jpg"
+											style="width: 50px" />
+											<img alt="image"
+											class="img-circle pull-left"
+											ng-if="profile.aaID == 'A123456'" src="img/profile/a12.jpg"
+											style="width: 50px" />
+											<img alt="image"
+											class="img-circle pull-left"
+											ng-if="profile.aaID == 'A234567'" src="img/profile/a1.jpg"
+											style="width: 50px" />
+											<img alt="image"
+											class="img-circle pull-left"
+											ng-if="profile.aaID == 'A345678'" src="img/profile/a2.jpg"
+											style="width: 50px" />
+											<img alt="image"
+											class="img-circle pull-left"
+											ng-if="profile.aaID == 'A456789'" src="img/profile/a5.jpg"
+											style="width: 50px" />
+											<img alt="image"
+											class="img-circle pull-left"
+											ng-if="profile.aaID == 'A567890'" src="img/profile/a7.jpg"
+											style="width: 50px" />
+											<img alt="image"
+											class="img-circle pull-left"
+											ng-if="profile.aaID == 'A678901'" src="img/profile/a8.jpg"
+											style="width: 50px" />
+											<img alt="image"
+											class="img-circle pull-left"
+											ng-if="profile.aaID == 'A789012'" src="img/profile/a11.jpg"
+											style="width: 50px" />
+											<img alt="image"
+											class="img-circle pull-left"
+											ng-if="profile.aaID == 'A629341'" src="img/profile/a9.png"
+											style="width: 50px" />
+											<img alt="image"
+											class="img-circle pull-left"
+											ng-if="profile.aaID == 'A890123'" src="img/profile/a4.jpg"
+											style="width: 50px" />
+											</a>
+									</div>
+								 -->	
+									
+									
+									
+									
+									
+								<!-- 	<div class="row profile">
+										<h3 class="m-b-xs">
+											<strong>{{profile.name}}</strong> <span class="font-normal">({{profile.role | uppercase}})</span>
+										</h3>
+										AA ID: {{profile.aaID}}</div> -->
+							
+
+
+								<!-- <li id="SB"><a onclick=""><img alt="SB" src="img/SB.png"
+									style="width: 20px; vertical-align: bottom"> <span
+									class="nav-label">Schedule Bidding</span> <span
+									class="fa arrow"></span></a>
+								<ul class="nav nav-second-level collapse">
+									 <li><a href="#preference">SB Preferences</a></li>
+									<li ng-if="profile.role == 'admin'"><a onclick="window.location.href='#schedulebidgroup'">Bid
+											Groups</a></li>
+									<li ng-if="profile.role == 'admin'"><a onclick="window.location.href='#sbdetail'">Master
+											Schedule Wizard</a></li>
+									<li ng-if="profile.role == 'admin'"><a onclick="window.location.href='#sbbiddetail'">Bid
+											Detail</a></li>
+									<li ng-if="profile.role == 'admin'"><a onclick="window.location.href='#sbschlines'">Schedule
+											Lines</a></li>
+									<li ng-if="profile.role == 'admin'"><a onclick="window.location.href='#sbempwindow'">Bid
+											Administration</a></li>
+									<li ng-if="profile.role == 'admin'"><a onclick="window.location.href='#sbassignment'">Edit
+											Awards</a></li>
+									<li><a onclick="window.location.href='#filters'">Preference
+											Selection</a></li>
+									<li><a onclick="window.location.href='#livebidding'">Live
+											Bidding</a></li>
+									<li><a onclick="window.location.href='#buddybidding'">Buddy Live
+											Bidding</a></li>						
+									<li><a onclick="window.location.href='#sbempschedule'">Employee
+											Schedule</a></li>
+									<li><a onclick="window.location.href='#bidresults'">Master
+											Schedule</a></li>
+									<li><a
+										onclick="window.location.href='#schedulebidproxycriteria'">Preference
+											Criteria</a></li>
+									<li ng-if="profile.role == 'admin'"><a onclick="window.location.href='#sbreport'">Reports</a></li>
+								</ul></li>
+								 -->
+								
+								
+								
+							<!-- <li id="VB"><a onclick=""><img alt="VB" src="img/VB.png"
+									style="width: 20px; vertical-align: bottom;"> <span
+									class="nav-label">Vacation Bidding</span> <span
+									class="fa arrow"></span></a>
+								<ul class="nav nav-second-level collapse">
+									<li ng-if="profile.role == 'admin'"><a onclick="window.location.href='#schedulebidgroup'">Bid
+											Groups</a></li>
+									<li ng-if="profile.role == 'admin'"><a onclick="window.location.href='#vbdetail'">Master
+											Vacation Wizard</a></li>
+									<li ng-if="profile.role == 'admin'"><a onclick="window.location.href='#vbassignment'">Bid
+											Detail</a></li>
+									<li ng-if="profile.role == 'admin'"><a onclick="window.location.href='#vbempwindow'">Bid
+											Administration</a></li>
+									<li ng-if="profile.role == 'admin'"><a onclick="window.location.href='#vbairportCodes'">Election
+											Permission Form</a></li>
+									<li><a onclick="window.location.href='#vbdatselection'">Vacation
+											Election Form</a></li>
+									<li ng-if="profile.role == 'admin'"><a onclick="window.location.href='#datreport'">Vacation Liability
+											Report</a></li>
+									<li ng-if="profile.role == 'admin'"><a onclick="window.location.href='#weeklyallotments'">Weekly
+											Allotments</a></li>
+									<li><a onclick="window.location.href='#vbpreference'">Preference
+											Selection</a></li>
+									<li><a onclick="window.location.href='#vblivebidding'">Live
+											Bidding</a></li>
+									<li><a
+										onclick="window.location.href='#vbvacationre-award'">Vacation
+											Change Period</a></li>
+									<li><a onclick="window.location.href='#datsubmissions'">DAT
+											Submissions</a></li>
+									<li><a onclick="window.location.href='#mastercalendar'">Master
+											Calendar</a></li>
+									<li><a
+										onclick="window.location.href='#vacationbiddingcriteria'">Preference
+											Criteria</a></li>
+									<li><a onclick="window.location.href='#buddyrequestform'">Buddy
+											Request Form</a></li>
+									<li><a onclick="window.location.href='#myDB'">My
+											Dashboard</a></li>
+								</ul></li> -->
+								
+								
+								
+								
+								
+				
+				<!-- <div id="page-wrapper" class="gray-bg"> -->
+					<!-- <div class="row border-bottom">
+						<nav class="navbar navbar-fixed-top" role="navigation">
+							<div class="navbar-header navbar-default mr10">
+								<a class="navbar-minimalize minimalize-styl-2 btn btn-primary "
+									href=""><i class="fa fa-bars"></i> </a>
+							</div>
+							<div class="col-sm-8" style="float: left">
+								<h2 class="text-normal welcome-message">Welcome to Bidding
+									Hub</h2>
+							</div>
+							<ul class="nav navbar-top-links navbar-right"
+								style="margin-bottom: 0px !important; padding-bottom: 0px !important;float:right">
+								<li><a class="dropdown-toggle count" data-toggle="dropdown"
+									aria-expanded="true" style=""> <i
+										class="fa fa-bell text-normal"></i> <span
+										class="label label-primary">8</span>
+								</a>
+									<ul class="dropdown-menu dropdown-alerts">
+										<li>
+											<div>
+												<i class="fa fa-envelope fa-fw"></i> Vacation vacancy is....
+												<span class="pull-right text-muted small">4 minutes
+													ago</span>
+											</div>
+										</li>
+										<li class="divider"></li>
+										<li>
+											<div>
+												<i class="fa fa-envelope fa-fw"></i> Vacation vacancy
+												for.... <span class="pull-right text-muted small">4
+													minutes ago</span>
+											</div>
+										</li>
+										<li class="divider"></li>
+										<li>
+											<div class="text-center link-block">
+												<a href="#/notifications"> <strong>See All
+														Alerts</strong> <i class="fa fa-angle-right"></i>
+												</a>
+											</div>
+										</li>
+									</ul></li>
+								<li class="dropdown"><a class="dropdown-toggle count"
+									data-toggle="dropdown" aria-expanded="true"> <i
+										class="fa fa-envelope text-normal"></i> <span
+										class="label label-warning">13</span>
+								</a>
+									<ul class="dropdown-menu dropdown-messages">
+										<li>
+											<div class="dropdown-messages-box">
+												<a href="profile.html" class="pull-left"> <img
+													alt="image" class="img-circle" src="img/profile/a4.jpg">
+												</a>
+												<div class="media-body">
+													<small class="pull-right">3h ago</small> <strong>Daniel
+									Wellington</strong> Last
+									chance to Register, if you haven't. <br>
+													<small class="text-muted">6:10 AM</small>
+												</div>
+											</div>
+										</li>
+										<li class="divider"></li>
+										<li>
+											<div class="dropdown-messages-box">
+												<a href="profile.html" class="pull-left"> <img
+													alt="image" class="img-circle" src="img/profile/a5.jpg">
+												</a>
+												<div class="media-body ">
+													<small class="pull-right text-navy">13h ago</small> <strong>Bidding Hub</strong> New
+									Schedule Lines are opened.. <br>
+													<small class="text-muted">Yesterday 8:21 pm -
+														</small>
+												</div>
+											</div>
+										</li>
+										<li class="divider"></li>
+										<li>
+											<div class="text-center link-block">
+												<a href="#/mailbox"> <i class="fa fa-envelope"></i> <strong>Read
+														All Messages</strong>
+												</a>
+											</div>
+										</li>
+									</ul></li>
+								<li><a href="#landing" style="font-size: 20px"
+									class="text-normal"> <i class="fa fa-home"></i>
+								</a></li>
+								<li><a href="/#/signout" style="font-size: 14px"
+									class="text-normal"> <i class="fa fa-sign-out"></i> Logout
+								</a></li>
+							</ul>
+						</nav>
+					</div> -->
+					
+			
+	
+	
+	<script src="bower_components/jquery/dist/jquery.min.js"></script>
+	 <script src="https://basecoat.cdn.dimensiondata.com/2.1.0/js/dd.basecoat.min.js"></script>
+	<script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+	<script
+		src="bower_components/bootstrap-datepicker/js/bootstrap-datepicker.js"></script>
+	<script src="js/plugins/bootstrap-tour-standalone.min.js"></script>
+	<script src="js/plugins/sweetalert.min.js"></script>
+	<script src="bower_components/moment/moment-with-locales.js"></script>
+	<script
+		src="bower_components/bootstrap-datetimepicker/bootstrap-datetimepicker.js"></script>
+	<script src="bower_components/angular/angular.min.js"></script>
+	<script src="bower_components/angular-route/angular-route.js"></script>
+	<script src="bower_components/angular-animate/angular-animate.js"></script>
+	<script
+		src="bower_components/angular-ui-clock/dist/angular-clock.min.js"></script>
+	<script src="bower_components/angular-sanitize/angular-sanitize.min.js"></script>
+	<script src="bower_components/google-analytics/analytics.js"></script>
+	<!-- adapt-strap -->
+	<script src="bower_components/adapt-strap/dist/adapt-strap.min.js"></script>
+	<script src="bower_components/adapt-strap/dist/adapt-strap.tpl.min.js"></script>
+	<script src="bower_components/chart.js/dist/Chart.min.js"></script>
+	
+
+	<script src="lib/bootbox.min.js"></script>
+	<script src="lib/datatables.js"></script>
+	<script src="lib/angular-datatables.min.js"></script>
+
+
+	
+	<script src="js/plugins/sortable.min.js"></script>
+	<script src="js/plugins/ng-table.min.js"></script>
+	<script src="js/plugins/ui-bootstrap-tpls.min.js"></script>
+	<script src="js/plugins/draggable/draggable.js"></script>
+	<script src="https://unpkg.com/ag-grid-enterprise@16.0.0/dist/ag-grid-enterprise.min.js"></script>
+
+	<!-- Mainly scripts --> 
+	<script src="js/plugins/metisMenu/jquery.metisMenu.js"></script>
+	<script src="js/plugins/slimscroll/jquery.slimscroll.min.js"></script>
+	
+	
+	
+	
+ 
+  <!-- script src="js/app.min.js"></script --> <!-- your own script here -->
+  <script defer src="https://basecoat.cdn.dimensiondata.com/2.1.0/js/outdated-browser.min.js"></script>
+ 
+ <!--  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.23/angular.min.js"></script>
+	 -->
+	
+	
+	
+	
+	
+	
+	
+
+	<!-- Custom and plugin javascript -->
+ 	<script src="skin/inspinia/js/script.js"></script>
+	<script src="js/plugins/pace/pace.min.js"></script>
+	<script src="js/plugins/angular.chart.js"></script>
+	<script src="js/plugins/jasny.js"></script>
+	<script src="js/plugins/underscore.js"></script>
+	<script src="css/TimeCircles.js"></script>
+	<script src="js/fullcalendar.js"></script>
+	<script src="js/ngBootbox.js"></script>
+	<script src="js/plugins/ngDialog.js"></script>
+	
+	
+	<!--  Common Scripts  -->
+	
+	 
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.3.15/angular.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-select/0.11.2/select.js"></script>
+	
+	<script src="js/app.js"></script>
+	<script src="js/main.js"></script>
+	<script src="js/assetmanage.js"></script>
+	<script src="js/reportadmin.js"></script>
+	<script src="js/reportoverview.js"></script>
+	<script src="js/userpref.js"></script>
+	<script src="js/login.js"></script>
+	<script src="js/sellerCtrl.js"></script>
+	<script src="js/redirectCtrl.js"></script>
+	
+	
+
+	<script src="js/common/directives.js"></script>
+	<script src="js/common/factory.js"></script>
+	<script src="js/common/socket.js"></script>
+	<script src="js/common/filter.js"></script>
+
+<div ng-view class="content"></div>
+
+	<div id="toast-container" class="toast-top-center" aria-live="polite"
+		role="alert" style="display: none;">
+		<div class="toast toast-success">
+			<div class="toast-progress" style="width: 99.9112%;"></div>
+			<button type="button" class="toast-close-button" role="close"
+				ng-click="closeToast()">×</button>
+			<div class="toast-message"></div>
+		</div>
+	</div>
+</body>
+</html>

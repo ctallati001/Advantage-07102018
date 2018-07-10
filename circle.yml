@@ -1,0 +1,23 @@
+general:
+  branches:
+    only:
+      - master
+      
+machine:
+  java:
+    version: oraclejdk8
+  services:
+    - docker
+
+test:
+  override:
+    - mvn  package install
+    - docker info
+    - docker build -t jdevhari/biddinghub .
+    
+deployment:
+  hub:
+    branch: master
+    commands:
+      - docker login -e $DOCKER_EMAIL -u $DOCKER_USER -p $DOCKER_PASS
+      - docker push jdevhari/biddinghub

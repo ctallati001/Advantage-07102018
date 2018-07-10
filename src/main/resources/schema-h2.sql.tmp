@@ -1,0 +1,341 @@
+
+DROP TABLE IF EXISTS bid_group;
+DROP TABLE IF EXISTS schedule_type;
+DROP TABLE IF EXISTS schedule_line;
+DROP TABLE IF EXISTS schedule_line_detail;
+DROP TABLE IF EXISTS schedule_line_assignment;
+DROP TABLE IF EXISTS schedule_line_pref;
+DROP TABLE IF EXISTS vacation_week;
+DROP TABLE IF EXISTS vacation_week_assignment;
+DROP TABLE IF EXISTS vacation_week_pref;
+DROP TABLE IF EXISTS holiday_vacation_assignment;
+DROP TABLE IF EXISTS holiday_vacation_pref;
+DROP TABLE IF EXISTS EmployeeInfo;
+DROP TABLE IF EXISTS vacation_re_award;
+DROP TABLE IF EXISTS contact_info;
+DROP TABLE IF EXISTS vacation;
+DROP TABLE IF EXISTS role;
+DROP TABLE IF EXISTS vacation_bid_detail;
+DROP TABLE IF EXISTS schedule_bid_detail;
+DROP TABLE IF EXISTS airport_details;
+DROP TABLE IF EXISTS vb_emp_preference_assignment;
+DROP TABLE IF EXISTS vb_weekly_allotment;
+DROP TABLE IF EXISTS vacation_bidding_criteria;
+DROP TABLE IF EXISTS emp_info;
+DROP TABLE IF EXISTS user;
+DROP TABLE IF EXISTS schedule_bid_group;
+DROP TABLE IF EXISTS schedule_bid_group_emplist;
+DROP TABLE IF EXISTS buddy_request;
+DROP TABLE IF EXISTS dat_submission;
+
+CREATE TABLE user (
+	id integer auto_increment PRIMARY KEY ,
+	username VARCHAR(50),
+	firstname VARCHAR(50),
+	lastname VARCHAR(50),
+	email VARCHAR(50),
+	password VARCHAR(50),
+	role VARCHAR(50)
+);
+
+CREATE TABLE bid_group (
+	id integer auto_increment PRIMARY KEY ,
+	name VARCHAR(50),
+	start_date date,
+	end_date date
+);
+
+CREATE TABLE schedule_bid_group (
+	id integer auto_increment PRIMARY KEY ,
+	bid_group_name VARCHAR(50),
+	location VARCHAR(50),
+	description VARCHAR(80),
+	bid_group_details VARCHAR(100),
+	job_type VARCHAR(20),
+	effective_from_date date,
+	calc_group VARCHAR(20),
+	shift_type VARCHAR(20)
+	);
+	
+CREATE TABLE schedule_type (
+	id integer auto_increment PRIMARY KEY ,
+	name VARCHAR(50),
+	tag VARCHAR(50),
+	tool_tip VARCHAR(255)
+);
+
+
+CREATE TABLE schedule_bid_detail (
+	bid_dtl_id integer auto_increment PRIMARY KEY ,
+	bid_name VARCHAR(50),
+	bid_group_id integer,
+	bid_desc VARCHAR(50),
+	bid_start_date timestamp,
+	bid_end_date timestamp,
+	bid_paused_date date,
+	bid_reward_date date,
+	bid_type VARCHAR(20),
+	job_type VARCHAR(20),
+	window_length integer,
+	status VARCHAR(20),
+	open_time boolean,
+	airport_code VARCHAR(5),
+	effective_date date
+);
+
+CREATE TABLE schedule_line (
+	id integer auto_increment PRIMARY KEY ,
+	bid_dtl_id integer,
+	schedule_type_id integer,
+	line_id integer,
+	label VARCHAR(255),
+	hours integer,
+	tool_tip VARCHAR(255),
+	week_details  VARCHAR(255),
+	flex_date date,
+	comments VARCHAR(1000)
+);
+ALTER TABLE schedule_line ADD FOREIGN KEY (bid_dtl_id) REFERENCES schedule_bid_detail(bid_dtl_id);
+ALTER TABLE schedule_line ADD FOREIGN KEY (schedule_type_id) REFERENCES schedule_type(id);
+
+
+CREATE TABLE schedule_line_detail (
+	id integer auto_increment PRIMARY KEY ,
+	schedule_line_id integer,
+	day_of_week integer,
+	start_time VARCHAR(255),
+	end_time VARCHAR(255),
+	off_day VARCHAR(1),
+	break_time integer,
+	location VARCHAR(255),	
+	skills VARCHAR(255),
+	flex_day VARCHAR(2)
+);
+ALTER TABLE schedule_line_detail ADD FOREIGN KEY (schedule_line_id) REFERENCES schedule_line(id);
+
+
+CREATE TABLE schedule_line_assignment (
+	id integer auto_increment PRIMARY KEY ,
+	emp_id integer,
+	schedule_line_id integer not null,
+	seletion_time date,
+	assignee VARCHAR(255),
+	pref_number integer,
+	is_preference boolean,
+	is_assignment boolean
+);
+ALTER TABLE schedule_line_assignment ADD FOREIGN KEY (schedule_line_id) REFERENCES schedule_line(id);
+
+CREATE TABLE schedule_line_pref (
+	id integer auto_increment PRIMARY KEY ,
+	emp_id integer,
+	schedule_line_id integer,
+	seletion_time date,
+	assignee VARCHAR(255)
+);
+ALTER TABLE schedule_line_pref ADD FOREIGN KEY (schedule_line_id) REFERENCES schedule_line(id);
+
+CREATE TABLE vacation_week (
+	id integer auto_increment PRIMARY KEY ,
+	bid_group_id integer,
+	vacation_num integer,
+	label VARCHAR(255),
+	tool_tip VARCHAR(255),
+	week_description VARCHAR(255),
+	start_date VARCHAR(255),
+	end_date VARCHAR(255), 
+	total_slots integer
+);
+ALTER TABLE vacation_week ADD FOREIGN KEY (bid_group_id) REFERENCES schedule_bid_group(id);
+
+CREATE TABLE vacation_week_assignment (
+	id integer auto_increment PRIMARY KEY,
+	emp_id integer,
+	vacation_week_id integer,
+	selection_time date,
+	assignee VARCHAR(255)
+);
+ALTER TABLE vacation_week_assignment ADD FOREIGN KEY (vacation_week_id) REFERENCES vacation_week(id);
+
+
+CREATE TABLE vacation_week_pref (
+	id integer auto_increment PRIMARY KEY,
+	emp_id integer,
+	vacation_week_id integer,
+	selection_time date,
+	assignee VARCHAR(255)
+);
+ALTER TABLE vacation_week_pref ADD FOREIGN KEY (vacation_week_id) REFERENCES vacation_week(id);
+
+
+CREATE TABLE holiday_vacation_assignment (
+	id integer auto_increment PRIMARY KEY,
+	emp_id integer,
+	vacation_week_id integer,
+	selection_time date,
+	assignee VARCHAR(255)
+);
+ALTER TABLE holiday_vacation_assignment ADD FOREIGN KEY (vacation_week_id) REFERENCES vacation_week(id);
+
+CREATE TABLE holiday_vacation_pref (
+	id integer auto_increment PRIMARY KEY,
+	emp_id integer,
+	vacation_week_id integer,
+	selection_time date,
+	assignee VARCHAR(255)
+);
+ALTER TABLE holiday_vacation_pref ADD FOREIGN KEY (vacation_week_id) REFERENCES vacation_week(id);
+
+CREATE TABLE vacation (
+	id integer auto_increment PRIMARY KEY
+);
+
+CREATE TABLE vacation_re_award (
+	id integer auto_increment PRIMARY KEY,
+	vacation_id integer,
+	requested_week integer,
+	existing_week integer,
+	assignee VARCHAR(255)
+);
+ALTER TABLE vacation_re_award ADD FOREIGN KEY (vacation_id) REFERENCES vacation(id);
+
+CREATE TABLE role (
+	id integer auto_increment PRIMARY KEY
+);
+
+CREATE TABLE contact_info (
+	id integer auto_increment PRIMARY KEY,
+	primary_mobile_no VARCHAR(255),
+	secondary_mobile_no VARCHAR(255),
+	primary_email VARCHAR(255),
+	secondary_email VARCHAR(255),
+	role_id integer
+);
+ALTER TABLE contact_info ADD FOREIGN KEY (role_id) REFERENCES role(id);
+
+
+CREATE TABLE vacation_bid_detail (
+	bid_dtl_id integer auto_increment PRIMARY KEY ,
+	bid_grp_id integer,
+	bid_grp_name VARCHAR(50),
+	bid_name VARCHAR(50),
+	bid_desc VARCHAR(50),
+	start_date date,
+	end_date date,
+	bid_start_date timestamp,
+	bid_end_date timestamp,
+	bid_paused_date date,
+	bid_reward_date date,
+	bid_type VARCHAR(20),
+	shift_type VARCHAR(20),
+	window_length integer,
+	rounds integer,
+	status VARCHAR(20)
+);
+
+CREATE TABLE airport_details (
+       id integer auto_increment PRIMARY KEY,
+       code VARCHAR(255),
+       start_date date,
+       end_date date,
+       status VARCHAR(255)
+);
+
+CREATE TABLE vb_emp_preference_assignment (
+	vb_pref_id integer auto_increment PRIMARY KEY,
+	bid_week_id integer,
+	bid_dtl_id integer,
+	requested_week integer,
+	existing_week integer,
+	pref_number VARCHAR(3),
+	start_date datetime,
+	end_date datetime,
+	emp_id integer,
+	emp_name VARCHAR(50),
+	vacation_type VARCHAR(50),
+	round_number integer,
+	status VARCHAR(20),
+	is_preference  boolean,
+	is_assignment  boolean
+);
+	
+CREATE TABLE vb_weekly_allotment (
+       bid_week_id integer auto_increment PRIMARY KEY,
+       bid_dtl_id integer,
+       week_number integer,
+       start_date date,
+       end_date date,
+       slots_available integer,
+       slots_remaining integer,
+       slots_available_mon integer,
+       slots_remaining_mon integer,
+       slots_available_tue integer,
+       slots_remaining_tue integer,
+       slots_available_wed integer,
+       slots_remaining_wed integer,
+       slots_available_thu integer,
+       slots_remaining_thu integer,
+       slots_available_fri integer,
+       slots_remaining_fri integer,
+       slots_available_sat integer,
+       slots_remaining_sat integer,
+       slots_available_sun integer,
+       slots_remaining_sun integer
+);
+
+CREATE TABLE emp_info (
+	id integer auto_increment PRIMARY KEY,
+	emp_id integer,
+	aaid VARCHAR(20),
+	first_name VARCHAR(50),
+	last_name VARCHAR(20),
+	dob VARCHAR(20),
+	seniority VARCHAR(50),
+	status VARCHAR(50),
+	employee_team VARCHAR(50),
+	calc_group  VARCHAR(50),
+	pay_group  VARCHAR(50),
+	airport VARCHAR(50),
+	primary_mobile_no VARCHAR(50),
+	secondary_mobile_no VARCHAR(50),
+	primary_email VARCHAR(50),
+	secondary_email VARCHAR(50),
+	role VARCHAR(50),
+	password VARCHAR(20)
+);
+
+CREATE TABLE vacation_bidding_criteria (
+	bidding_id integer auto_increment PRIMARY KEY ,
+	vacationdetails VARCHAR(50),
+	select_value  VARCHAR(50),
+	select_option  VARCHAR(50)
+);
+ALTER TABLE EMP_INFO ADD BUDDY_STATUS CHAR(5) DEFAULT '0' NOT NULL;
+
+CREATE TABLE schedule_bid_group_emplist (
+	id integer auto_increment PRIMARY KEY,
+	emp_id integer,
+	schedule_bid_group_id integer,
+	start_date date,
+	end_date date,
+	bid_start_time timestamp,
+	bid_end_time timestamp
+);
+ALTER TABLE schedule_bid_group_emplist ADD FOREIGN KEY (schedule_bid_group_id) REFERENCES schedule_bid_group(id);
+ALTER TABLE schedule_bid_group_emplist ADD FOREIGN KEY (emp_id) REFERENCES emp_info(id);
+
+CREATE TABLE buddy_request (
+	id integer auto_increment PRIMARY KEY ,
+	from_employee_aaid VARCHAR(50),
+	to_employee_aaid VARCHAR(50),
+	from_employee_empid integer,
+	to_employee_empid integer,
+	message VARCHAR(200),
+	status VARCHAR(15)
+);
+
+CREATE TABLE dat_submission (
+	id integer auto_increment PRIMARY KEY ,
+	effective_date date
+	
+);

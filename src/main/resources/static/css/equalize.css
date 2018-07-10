@@ -1,0 +1,28 @@
+.row-equalize [class^='col-'], .row-equalize [class*=' col-'] {
+  display: flex;
+  flex-direction: column;
+}
+
+.row-equalize .equalize {
+  flex: 1 0 auto;
+}
+
+.row-equalize:before {
+  width: 100%;
+}
+
+@media (min-width: 480px) {
+  .equalize-sm-up {
+    display: flex;
+    flex-wrap: wrap;
+  }
+}
+
+@media (min-width: 768px) {
+  .equalize-md-up {
+    display: flex;
+    flex-wrap: wrap;
+  }
+}
+
+/*# sourceMappingURL=equalize.css.map */

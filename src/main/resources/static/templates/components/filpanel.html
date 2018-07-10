@@ -1,0 +1,88 @@
+
+<button type="button" class="btn btn-info" data-toggle="collapse"
+	data-target="#filt">Edit My Filters</button>
+<div id="filt" class="row bordered-div collapse">
+	<div class="form-group col-xs-12">
+		<h4 class="col-md-2">Time Range</h4>
+		<div class="col-sm-6 col-md-4">
+			<div id="time-range">
+				<p>
+					Start: <span class="slider-time">0000</span> - <span
+						class="slider-time2">2359</span>
+				</p>
+				<div class="sliders_step1">
+					<div id="slider-range5"></div>
+				</div>
+			</div>
+		</div>
+		<div class="col-sm-6 col-md-4">
+			<div id="time-range">
+				<p>
+					End: <span class="slider-time">0000</span> - <span
+						class="slider-time2">2359</span>
+				</p>
+				<div class="sliders_step">
+					<div id="slider-range6"></div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="form-group col-xs-12">
+		<h4 class="col-md-2 pull-left">Off Day</h4>
+		<div class="col-md-10">
+			<div ng-repeat="ch in offdays"
+				class="pull-left col-lg-1 col-sm-2 col-xs-3 ch-offdays">
+				<input type="checkbox" id="{{ch.opt+'id'}}" ng-model="ch.selected"
+					ng-change="applyCtFilterLive()" /><label for="{{ch.opt+'id'}}">{{ch.opt}}</label>
+			</div>
+		</div>
+	</div>
+	<div class="form-group col-xs-12">
+		<h4 class="col-md-2 pull-left">Location</h4>
+		<div class="col-md-10">
+			<div ng-repeat="ch in location"
+				class="pull-left col-lg-2 col-md-2 col-sm-3 col-xs-3 ch-offdays">
+				<input type="checkbox" ng-if="$index<4" id="{{ch.opt+'id'}}"
+					ng-model="ch.selected" ng-change="applyCtFilterLive()" /><label
+					for="{{ch.opt+'id'}}" ng-if="$index<4">{{ch.opt}}</label>
+			</div>
+		</div>
+	</div>
+	<div class="form-group col-xs-12">
+		<h4 class="col-md-2">Shift Type</h4>
+		<div class="col-md-10">
+			<div ng-repeat="ch in shiftType" ng-class="getClass(ch)"
+				class="pull-left col-lg-2 col-sm-2 col-xs-3 ch-offdays">
+				<input type="checkbox" id="{{ch.opt+'id'}}" ng-model="ch.selected"
+					ng-change="applyCtFilterLive()" /><label for="{{ch.opt+'id'}}">{{ch.opt}}</label>
+			</div>
+		</div>
+	</div>
+	<div class="form-group col-xs-12">
+		<h4 class="col-md-2">Match My Friend</h4>
+		<div class="col-md-10">
+			<input type="checkbox" id="frnd" " /><label for="{{ch.opt+'id'}}"></label>
+		</div>
+	</div>
+	<div class="form-group col-xs-12">
+		<h4 class="col-md-2">Break Options</h4>
+		<div class="col-md-5" style="padding: 0px;">
+			<select name="" class="form-control m-b" id=""
+				ng-model="selectedBreakOpt" ng-change="applyCtFilterLive()">
+				<option value="all">ALL</option>
+				<option value="0 min">0 min</option>
+				<option value="15 min">15 min</option>
+				<option value="30 min">30 min</option>
+				<option value="60 min">60 min</option>
+			</select>
+		</div>
+	</div>
+	<div class="form-group">
+		<div class="col-sm-6">
+			<button class="btn btn-primary" ng-click="saveCtFilter()">Save
+				Filter</button>
+			<button class="btn btn-primary" ng-click="resetCtFilter()">Clear
+				all Filter</button>
+		</div>
+	</div>
+</div>

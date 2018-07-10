@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html class="desktop-menu-open" lang="en" ng-app="myApp">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>Dimension Data | Advantage</title>
+  <!-- meta name="description" content="Description of the page less than 150 characters" --> <!-- meta description -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,300i,400,400i,700,700i">
+  <link rel="stylesheet" href="css/dd-adv-global.css">
+      <link rel="stylesheet" href="css/dashboard.css">
+	  <style>
+	  .page-wrapper {padding-top:40px !important}
+	  </style>
+  <!-- link rel="stylesheet" href="css/app.min.css" --> <!-- your own stylesheet here -->
+  <link rel="apple-touch-icon" sizes="180x180" href="https://basecoat.cdn.dimensiondata.com/2.1.0/img/favicon/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="https://basecoat.cdn.dimensiondata.com/2.1.0/img/favicon/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="https://basecoat.cdn.dimensiondata.com/2.1.0/img/favicon/favicon-16x16.png">
+  <link rel="mask-icon" href="https://basecoat.cdn.dimensiondata.com/2.1.0/img/favicon/safari-pinned-tab.svg" color="#72bf44">
+  <link rel="shortcut icon" href="https://basecoat.cdn.dimensiondata.com/2.1.0/img/favicon/favicon.ico">
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#ffffff">
+      <script>
+      // theme loader script (not part of the example)
+      if (localStorage.getItem('theme') == 'dark') {
+        var stylesheets = document.querySelectorAll('link[href$=".css"]');
+        for (var i = 0; i < stylesheets.length; i++) {
+          var tag = stylesheets[i];
+          var href = tag.getAttribute('href').replace(/(-dark)?(\.min)?\.css/i, '-dark$2.css');
+          document.write('<link rel="stylesheet" href="' + href + '">');
+          tag.parentElement.removeChild(tag);
+        };
+      }
+      window.addEventListener('storage', function (e) {
+        if (e.key == 'theme') {
+          var stylesheets = document.querySelectorAll('link[href$=".css"]');
+          for (var i = 0; i < stylesheets.length; i++) {
+            var tag = stylesheets[i];
+            var href = tag.getAttribute('href').replace('-dark', '');
+            if (e.newValue == 'dark') {
+              href = href.replace(/(-dark)?(\.min)?\.css/i, '-dark$2.css');
+            }
+            var newTag = document.createElement('link');
+            newTag.setAttribute('rel', 'stylesheet');
+            newTag.setAttribute('href', href);
+            tag.parentElement.appendChild(newTag);
+            window.setTimeout(function (tag) {
+              tag.parentElement.removeChild(tag);
+            }, 500, tag);
+          };
+        }
+      });
+    </script>
+</head>
+
+<body ng-controller="sellerCtrl">
+    <header class="site-header">
+<nav class="navbar navbar-fixed-top"> <!-- IMPORTANT: add the class `navbar-fixed-top` to position it at the top of the window -->
+
+  <!-- Left utility nav -->
+  <ul class="nav navbar-nav navbar-left">
+    <!-- Desktop menu toggle -->
+    <li class="desktop-menu-toggle hidden-mobile">
+      <a href="#" data-toggle="desktop-menu" title="Desktop menu">
+        <div class="hidden-closed">Close</div>
+        <div class="hidden-opened"></div>
+      </a>
+    </li>
+    <li>
+      <!-- Company logo -->
+      <a class="horizontal-logo" href="index.html" title="Return home">
+        <div class="logo-image" title="Dimension Data"></div>
+        <div class="logo-title"><span style="font-size:18px !important">ADVANTAGE</span></div>
+      </a>
+    </li>
+  </ul>
+
+  <!-- Center utility nav -->
+  <!-- ul class="nav navbar-nav navbar-center"></ul -->
+
+  <!-- Right utility nav -->
+  <ul class="nav navbar-nav navbar-right">
+    <li class="hidden-mobile">
+      <!-- Plain text link -->
+      <a href="#">Support</a>
+    </li>
+	    <li class="hidden-mobile">
+      <!-- Plain text link -->
+      <a href="#">Contact</a>
+    </li>
+    <!-- Divider -->
+    <li role="separator" class="divider hidden-mobile"></li>
+    <!-- Dropdown menu -->
+    <li class="dropdown hidden-mobile">
+      <a href="#" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" class="dropdown-toggle">
+        <span class="fa fa-user"></span> Log In <span class="caret"></span>
+      </a>
+      <ul class="dropdown-menu">
+        <li><a href="login.html">Logged Out</a></li>
+      </ul>
+    </li>
+    <!-- Divider -->
+    <li role="separator" class="divider hidden-mobile"></li>
+
+    <!-- Divider -->
+    <li role="separator" class="divider hidden-mobile"></li>
+    <li class="hidden-mobile">
+      <!-- Client logo -->
+      <div class="horizontal-logo" ng-if="profile.userType == 'client' ">
+        <!-- img should be wider than it is high (approx 4:1) and 24px (at least) in height -->
+        <a href="login.html"><img src="img/oracle-logo.gif" alt="Company name" class="hidden-dark"/></a>
+        <img src="img/oracle-logo.gif" alt="Company name" class="hidden-light"/>
+        <!-- a css background-image lets you to control the logo image using media queries or stylesheets (in case of switching themes) -->
+        <!-- div class="logo-image" title="Company name" style="background-image: url(img/client-logo.png)"></div -->
+      </div>
+    </li>
+    <!-- Mobile menu toggle -->
+    <li class="mobile-menu-toggle hidden-desktop" data-toggle="mobile-menu" title="Mobile menu">
+      <button type="button" class="navbar-btn btn"><i aria-hidden="true" class="fa fa-bars"></i></button>
+    </li>
+  </ul>
+</nav>
+
+
+ </header>
+  <div class="desktop-menu-layout mobile-menu-layout" style="width: 1126px;height: 972px;">
+
+    <div class="desktop-menu">
+<div class="desktop-menu">
+  <div class="content">
+    <nav class="scrollbars scrollbars-light">
+      <ul class="nav" data-accordion-group>
+<li class="active"><a href="index.html">Dashboard</a></li>
+        <li><a class="next collapsed" data-toggle="collapse">Manage Assets</a>
+          <ul class="collapse">
+            <li><a href="asset-manage.html">Search & Manage</a></li>
+          </ul>
+        </li>
+        <li><a class="next collapsed" data-toggle="collapse">Reports</a>
+          <ul class="collapse">
+            <li><a href="reports-overview.html">Saved Reports</a></li>
+			<li><a href="reports-admin.html">Admin Reports & Templates</a></li>
+          </ul>
+        </li>
+        <li><a class="next collapsed" data-toggle="collapse">User Preferences</a>
+          <ul class="collapse">
+            <li><a href="user-pref.html">Settings</a></li>
+          </ul>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</div>
+
+
+  </div>
+
+
+ 
+      <main class="page-wrapper">
+      
+        <div class="container-xl">
+        
+          <div class="row">
+          <div class="col-xs-11">
+          <label style="margin-left: 504px;font-size:18px !important" >Select an Account </label>	
+          </div>
+            <div class="col-xs-12">
+      
+              <!-- <div class="pull-left">
+                <h2 class="main-heading">Overview</h2>
+              </div> -->
+              <div style="margin-left: 504px;font-size:18px !important;font-weight:500">
+<div class="dropdown">
+<span style="font-size:90%">
+					<select ng-model="itemid" ng-change="getAccountLink(itemid)"   ng-options="i.id as i.name for i in accountLst">
+					 <option style="display:none" value="">Select Option</option>
+					
+					</select> 
+			
+			
+					
+				<!-- 	<select>
+    <option ng-repeat="operator in accountLst"  value="{{operator.id}}">
+     <a href="{{operator.id}}"> {{operator.name}}</a>
+    </option>
+</select> -->
+					
+	  			 </span>
+ </div>
+ <!--  <label for="accountselection">Select an Account: </label>	
+  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    
+  </button>
+  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+    <a class="dropdown-item" href="logindd.html">Direct Acount</a>
+    <a class="dropdown-item" href="loginoracle.html">Oracle Account</a>
+    <a class="dropdown-item" href="logindd.html">Ford Account</a>
+  </div> -->
+</div>
+
+
+			  
+      </main>
+      
+    <footer class="site-footer">
+      <p> Footer</p>
+    </footer>
+
+    <div class="mobile-menu">
+      <div class="content">
+<div class="scrollbars scrollbars-light">
+<nav class="drilldown">
+<ul class="nav">
+<li class="menu-header">
+<div class="horizontal-logo" data-toggle="mobile-menu" title="Close menu">
+<div class="logo-image" title="Dimension Data">
+</div>
+<div class="logo-title">
+<span>advantage</span>
+</div>
+</div>
+</li>
+<li class="active"><a href="index.html">Dashboard</a></li>
+<li><a href="#">Manage Assets</a>
+<ul class="nav">
+<li><a href="asset-manage.html">Search & Manage</a></li></ul>
+</li>
+        <li><a href="#">Reports</a>
+          <ul class="nav">
+            <li><a href="reports-overview.html">Saved Reports</a></li>
+			<li><a href="reports-admin.html">Admin Reports & Templates</a></li>
+          </ul>
+        </li>
+        <li><a href="#">User Preferences</a>
+          <ul class="nav">
+            <li><a href="user-pref.html">Settings</a></li>
+          </ul>
+        </li>
+</ul>
+</div>
+</div>
+	  
+    </div>
+
+  </div>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="https://basecoat.cdn.dimensiondata.com/2.1.0/js/dd.basecoat.min.js"></script>
+  <!-- script src="js/app.min.js"></script --> <!-- your own script here -->
+  <script defer src="https://basecoat.cdn.dimensiondata.com/2.1.0/js/outdated-browser.min.js"></script>
+   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.32/angular.min.js"></script>
+   <script src="js/login.js"></script>
+   <script src="js/assetmanage.js"></script>
+  
+
+</body>
+
+</html>
+
+

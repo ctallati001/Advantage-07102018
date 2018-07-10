@@ -1,0 +1,78 @@
+.page-wrapper {
+  display: flex;
+  flex-direction: column;
+  background: white;
+  padding-top: 40px ;
+}
+
+@media (min-width: 768px) {
+  .page-wrapper {
+    padding-top: 80px ;
+  }
+}
+
+.status-indicators {
+  font-size: 12px;
+  color: #a9a9a9;
+  margin: -2px 0 8px 0;
+  line-height: 1.5;
+  float: left;
+}
+
+@media (max-width: 480px) {
+  .status-indicators {
+    clear: both;
+    margin-top: 0;
+  }
+}
+
+.status-indicators .badge-dot {
+  margin: 0 3px -1px 20px;
+}
+
+@media (max-width: 480px) {
+  .status-indicators .badge-dot:first-child {
+    margin-left: 1px;
+  }
+}
+
+.status-indicators .badge-dot.status-ontime {
+  background: #189ba9;
+}
+
+.status-indicators .badge-dot.status-missed {
+  background: #e9903a;
+}
+
+.footer-tab-area {
+  background: #f9f9f9;
+  padding: 40px 0 0 0;
+  margin: 0;
+  flex: 1 0 auto;
+}
+
+.footer-tab-area .table-responsive {
+  clear: both;
+}
+
+@media (min-width: 768px) {
+  .footer-tab-area .table thead th {
+    padding-top: 0;
+  }
+}
+
+.footer-tab-area .table > tbody > tr > td {
+  line-height: 3;
+}
+
+.footer-tab-area .table > tbody > tr > td img {
+  max-width: none;
+  width: 40px;
+}
+
+.footer-tab-area .table td:last-child {
+  padding: 12px;
+  text-align: center;
+}
+
+/*# sourceMappingURL=dashboard.css.map */

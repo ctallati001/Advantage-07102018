@@ -1,0 +1,71 @@
+.page-wrapper {
+  padding-top: 40px ;
+  padding-bottom: 40px ;
+  background: #f9f9f9;
+}
+
+@media (min-width: 768px) {
+  .page-wrapper {
+    padding-top: 80px ;
+  }
+}
+
+@media (min-width: 768px) {
+  .page-wrapper {
+    padding-bottom: 80px ;
+  }
+}
+
+.registration-page .image-pane {
+  min-height: 160px;
+  background: #eaebea center center/50% 50% no-repeat;
+}
+
+.registration-page .image-pane.icon-account {
+  background-image: url(../img/dd-account.svg);
+}
+
+.registration-page .image-pane.icon-shield {
+  background-image: url(../img/dd-account.svg);
+}
+
+.registration-page .image-pane.icon-up {
+  background-image: url(../img/dd-account.svg);
+}
+
+.registration-page .image-pane.icon-cloud {
+  background-image: url(../img/dd-account.svg);
+}
+
+.registration-page .content-pane {
+  background: white;
+  padding: 40px 10px 0 10px;
+}
+
+@media (min-width: 768px) {
+  .registration-page .content-pane {
+    padding: 40px;
+    padding-bottom: 0;
+  }
+}
+
+@media (min-width: 480px) {
+  .registration-page .form-inline {
+    display: flex;
+  }
+  .registration-page .form-inline .form-group {
+    flex: 1 1 auto;
+    overflow: hidden;
+  }
+  .registration-page .form-inline .form-group .form-control {
+    max-width: 95%;
+  }
+}
+
+@media (min-width: 768px) {
+  .content-pane .form-area {
+    min-height: 240px;
+  }
+}
+
+/*# sourceMappingURL=registration-process.css.map */

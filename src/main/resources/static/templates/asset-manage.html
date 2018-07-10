@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html class="desktop-menu-open" lang="en" ng-app="myApp" ng-controller="assetMgmtCtrl">
+   <head>
+      <meta charset="utf-8">
+      <meta http-equiv="x-ua-compatible" content="ie=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+      <title>Dimension Data | Advantage</title>
+      <!-- meta name="description" content="Description of the page less than 150 characters" --> <!-- meta description -->
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,300i,400,400i,700,700i">
+     <link href='css/assetmanage.css' rel='stylesheet' />
+<link href='css/dashboard.css' rel='stylesheet' />
+<link href='css/dd-adv-global.css' rel='stylesheet' />
+      <link rel="stylesheet" href="css/assetmanage.css">
+     
+      <style>
+         .page-wrapper {padding-top:40px !important}
+      </style>
+      <!-- link rel="stylesheet" href="css/app.min.css" --> <!-- your own stylesheet here -->
+      <link rel="apple-touch-icon" sizes="180x180" href="https://basecoat.cdn.dimensiondata.com/2.1.0/img/favicon/apple-touch-icon.png">
+      <link rel="icon" type="image/png" sizes="32x32" href="https://basecoat.cdn.dimensiondata.com/2.1.0/img/favicon/favicon-32x32.png">
+      <link rel="icon" type="image/png" sizes="16x16" href="https://basecoat.cdn.dimensiondata.com/2.1.0/img/favicon/favicon-16x16.png">
+      <link rel="mask-icon" href="https://basecoat.cdn.dimensiondata.com/2.1.0/img/favicon/safari-pinned-tab.svg" color="#72bf44">
+      <link rel="shortcut icon" href="https://basecoat.cdn.dimensiondata.com/2.1.0/img/favicon/favicon.ico">
+      <link rel="manifest" href="manifest.json">
+      <meta name="theme-color" content="#ffffff">
+   </head>
+   <body style="width: 100%">
+      <header class="site-header">
+         <nav class="navbar navbar-fixed-top">
+            <!-- IMPORTANT: add the class `navbar-fixed-top` to position it at the top of the window -->
+            <!-- Left utility nav -->
+            <ul class="nav navbar-nav navbar-left">
+               <!-- Desktop menu toggle -->
+               <li class="desktop-menu-toggle hidden-mobile">
+                  <a href="javascript:void(0)" data-toggle="desktop-menu" title="Desktop menu">
+                     <div class="hidden-closed">Close</div>
+                     <div class="hidden-opened"></div>
+                  </a>
+               </li>
+               <li>
+                  <!-- Company logo -->
+                  <a class="horizontal-logo" href="/#/landing" title="Return home">
+                     <div class="logo-image" title="Dimension Data"></div>
+                     <div class="logo-title"><span style="font-size:18px !important">ADVANTAGE</span></div>
+                  </a>
+               </li>
+            </ul>
+            <!-- Center utility nav -->
+            <!-- ul class="nav navbar-nav navbar-center"></ul -->
+            <!-- Right utility nav -->
+            <ul class="nav navbar-nav navbar-right">
+               <li class="hidden-mobile">
+                  <!-- Plain text link -->
+                  <a href="#">Support</a>
+               </li>
+               <li class="hidden-mobile">
+                  <!-- Plain text link -->
+                  <a href="#">Contact</a>
+               </li>
+               <!-- Divider -->
+               <li role="separator" class="divider hidden-mobile"></li>
+               <!-- Dropdown menu -->
+               <li class="dropdown hidden-mobile">
+                  <a href="/#/login"" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" class="dropdown-toggle">
+                  <span class="fa fa-user"></span> {{profile.userName}}<span class="caret"></span>
+                  </a>
+                  <ul class="dropdown-menu">
+                     <li><a href="/#/login">Logged Out</a></li>
+                  </ul>
+               </li>
+               <!-- Divider -->
+               <li role="separator" class="divider hidden-mobile"></li>
+               <!-- Divider -->
+               <li role="separator" class="divider hidden-mobile"></li>
+               <li class="hidden-mobile">
+                  <!-- Client logo -->
+                  <div class="horizontal-logo" ng-if="profile.userType == 'client' ">
+                     <!-- img should be wider than it is high (approx 4:1) and 24px (at least) in height -->
+                     <a href="login.html"><img src="img/oracle-logo.gif" alt="Company name" class="hidden-dark"/></a>
+                     <img src="img/oracle-logo.gif" alt="Company name" class="hidden-light"/>
+                     <!-- a css background-image lets you to control the logo image using media queries or stylesheets (in case of switching themes) -->
+                     <!-- div class="logo-image" title="Company name" style="background-image: url(img/client-logo.png)"></div -->
+                  </div>
+               </li>
+               <!-- Mobile menu toggle -->
+               <li class="mobile-menu-toggle hidden-desktop" data-toggle="mobile-menu" title="Mobile menu">
+                  <button type="button" class="navbar-btn btn"><i aria-hidden="true" class="fa fa-bars"></i></button>
+               </li>
+            </ul>
+         </nav>
+      </header>
+      <div class="desktop-menu-layout mobile-menu-layout">
+         <div class="desktop-menu">
+            <div class="desktop-menu">
+               <div class="content">
+                  <nav class="scrollbars scrollbars-light">
+                     <ul class="nav" data-accordion-group>
+                        <li><a href="/#/home">Dashboard</a></li>
+                        <li>
+                           <a class="next collapsed" data-toggle="collapse">Manage Assets</a>
+                           <ul class="collapse">
+                              <li class="active"><a href="/#/asset-manage">Search & Manage</a></li>
+                           </ul>
+                        </li>
+                        <li>
+                           <a class="next collapsed" data-toggle="collapse">Reports</a>
+                           <ul class="collapse">
+                              <li><a href="/#/report-overview">Saved Reports</a></li>
+                              <li><a href="/#/report-admin">Admin Reports & Templates</a></li>
+                           </ul>
+                        </li>
+                        <li>
+                           <a class="next collapsed" data-toggle="collapse">User Preferences</a>
+                           <ul class="collapse">
+                              <li><a href="/#/user-pref">Settings</a></li>
+                           </ul>
+                        </li>
+                     </ul>
+                  </nav>
+               </div>
+            </div>
+         </div>
+         <main class="page-wrapper">
+            <div class="container-xl">
+               <div class="row">
+                  <div class="col-xs-12">
+                     <div class="pull-left">
+                        <h2 class="main-heading">Manage Asset</h2>
+                     </div>
+                       
+                     <div class="pull-right">
+                        <button type="button" class="btn btn-primary"  data-goto-panel="search"><span>Search Assets</span></button>
+                        <button type="button" class="btn btn-primary" ng-click="createNewAsset()"><span class="fa fa-plus"></span><span>Create New Asset</span></button>
+                     </div>
+                  
+                    
+                    <br/>
+                    <div class="col-sm-12 col-md-9 col-lg-10" ng-if="isCreateasset">
+                  <div class="content-box">
+                      <form>
+                          <h6>Asset Details</h6>
+                          <div class="row">
+                              <div class="col-sm-12 col-md-3">
+                                  <div class="form-group">
+                                    <label class="required-field">AssetId111 </label>
+                                    <input class="form-control" type="text" ng-model="am.assetId">
+                                  </div>
+                              </div>
+                              <div class="col-sm-12 col-md-3">
+                                  <div class="form-group">
+                                      <label>ManufactureNo</label>
+                                      <input class="form-control" type="text" ng-model="am.manufactureNo"> 
+                                  </div>
+                              </div>
+                              <div class="col-sm-12 col-md-3">
+                                  <div class="form-group">
+                                      <label>Install</label>
+                                    <input class="form-control" type="text" ng-model="am.install"> 
+                                  </div>
+                              </div>
+                               <div class="col-sm-12 col-md-3">
+                                  <div class="form-group">
+                                      <label>End Of Sale</label>
+                                    <input class="form-control" type="date" ng-model="am.endofSale"> 
+                                  </div>
+                              </div>
+                          </div>
+                          <div class="row">
+                              <div class="col-sm-12 col-md-3">
+                                  <div class="form-group">
+                                    <label class="required-field">EOLAnnoucement </label>
+                                    <input class="form-control" type="text" ng-model="am.eolAnnoucement">
+                                  </div>
+                              </div>
+                              <div class="col-sm-12 col-md-3">
+                                  <div class="form-group">
+                                      <label>SerialNo</label>
+                                      <input class="form-control" type="text" ng-model="am.serialNo"> 
+                                  </div>
+                              </div>
+                              <div class="col-sm-12 col-md-3">
+                                  <div class="form-group">
+                                      <label>PO Number</label>
+                                    <input class="form-control" type="text" ng-model="am.poNumber"> 
+                                  </div>
+                              </div>
+                               <div class="col-sm-12 col-md-3">
+                                  <div class="form-group">
+                                      <label>Install Date</label>
+                                    <input class="form-control" type="date" ng-model="am.installDate"> 
+                                  </div>
+                              </div>
+                          </div>
+                          <div class="row"></div>
+                          <br/><br/>
+                          <div class="row">
+                              <div class="col-sm-12 col-md-12">
+                                  <div class="float-right">
+                                      <input class="btn btn-success" type="submit" name="save" ng-click="saveAsset(am)" value="Save"/>
+                                      <input class="btn btn-danger" type="reset" name="reset" value="Reset"/>
+                                  </div>
+                              </div>
+                          </div>
+                      </form>
+                  </div>
+              </div>
+                    
+                    
+                    
+                    
+                    
+                     
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+         <div style="clear:both;" class="panel" data-panel="search" >
+          <div class="panel-body" style="margin-top: 100px;width: 855px;">
+            <div class="row">
+              <div class="col-xs-12">
+                <form data-validation-example="">
+                  <div class="row">
+                    <div class="col-xs-12">
+					<h2>Search</h2>
+					<p>
+	  <span class="pull-left" style="padding-right:5px;">
+Select from Saved Search </span>
+<span style="padding-right:5px;">
+<select ng-model="searchid"  ng-options="i.filterData as i.fName for i in filterDataList">
+					 <option style="display:none" value="">Select Last Search</option>
+					
+					</select>
+</span></p>
+                      <p>All Searchable Fields &amp; Filter.</p>
+					 
+                    </div>
+                    <div class="col-xs-12">
+                      <div class="pull-right">
+               <button type="button" class="btn btn-primary" ng-click="restoreFromHardCoded();"><span>Search</span></button>
+			   <button type="button" class="btn btn-secondary" data-goto-panel="none" ng-click="resetSearch();"><span>Reset</span></button>
+              </div>
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+		</div>
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                  </div>
+               </div>
+            </div>
+            <div class="tab-content footer-tab-area">
+               <div id="tab1" class="tab-pane fade in active">
+                  <div class="container-xl">
+                     <div class="row">
+                        <div class="col-xs-12 col-lg-12">
+                           <br>
+                           <div class="table-responsive scrollbars bottom-gutter">
+                           </div>
+                           <!-- Our new code added here -->
+                          
+                          
+                          
+                           <div class="ibox-content">
+                              <div style="width: 900px;">
+                                 <div style="padding: 4px">
+                                    <div style="float: right;">
+                                       
+                                       <!--  <button id="btDestroyGrid">Destroy Grid</button>
+                                          <button id="btBringGridBack">Create Grid</button> -->
+                                    </div>
+                                    <div style="padding: 4px;">
+                                       <b>Report for Asset Management</b> <span id="rowCount"></span>
+                                    </div>
+                                    <div style="clear: both;"></div>
+                                 </div>
+                                 <div style="width: 150%; height: 400px;"
+                                    id="bestHtml5Grid"
+                                    class="ag-theme-fresh ag-basic">
+                                 </div>
+                              </div>
+                           </div>
+                           <!--end here  -->
+                           <div class="pull-right" style="margin-top: 12px;">
+                           <button id="deleteBtn" type="button" class="btn btn-primary" ng-click="deleteSelected();"><span>Delete Selected<span></button>
+                           <button id="viewBtn" type="button" class="btn btn-primary" ng-click="veiwSelected();"><span>View Selected<span></button>
+                           <!-- Trigger/Open The Modal -->
+							<button id="myBtn" type="button" class="btn btn-primary" ><span>Save Search<span></button>
+                            <!--   <button id="filterSaveBtn" type="button" class="btn btn-primary"  data-goto-panel="search"><span>Save Search</span></button> --> 
+                              <button type="button" class="btn btn-primary" ng-click="restoreFromHardCoded();"><span class="fa fa-plus"></span><span>Create Report</span></button>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+            <div>
+               <nav aria-label="Page navigation">
+                  <ul class="pagination pull-right">
+                     <li class="pagination-extra hidden-xs hidden-sm">
+                        <label for="rowsPerPage">Rows per page</label>
+                        <select id="rowsPerPage" class="form-control input-sm">
+                           <option>5</option>
+                           <option selected>10</option>
+                           <option>20</option>
+                           <option>50</option>
+                        </select>
+                     </li>
+                     <li class="pagination-extra">1-10 of 100</li>
+                     <li class="disabled">
+                        <a href="#">
+                        <span aria-label="Previous" class="fa fa-angle-left"></span>
+                        </a>
+                     </li>
+                     <li class="hidden-xs active"><a href="#">1</a></li>
+                     <li class="hidden-xs"><a href="#">2</a></li>
+                     <li class="hidden-xs"><a href="#">3</a></li>
+                     <li class="hidden-xs"><a href="#">4</a></li>
+                     <li class="hidden-xs"><a href="#">5</a></li>
+                     <li>
+                        <a href="#">
+                        <span aria-label="Next" class="fa fa-angle-right"></span>
+                        </a>
+                     </li>
+                  </ul>
+               </nav>
+            </div>
+         </main>
+         <footer class="site-footer">
+            <p>&copy; Copy Right Reserved for DimensionData.com</p>
+         </footer>
+         <div class="mobile-menu">
+            <div class="content">
+               <div class="scrollbars scrollbars-light">
+                  <nav class="drilldown">
+                  <ul class="nav">
+                     <li class="menu-header">
+                        <div class="horizontal-logo" data-toggle="mobile-menu" title="Close menu">
+                           <div class="logo-image" title="Dimension Data"></div>
+                           <div class="logo-title">
+                              <span>advantage</span>
+                           </div>
+                        </div>
+                     </li>
+                     <li><a href="index.html">Dashboard</a></li>
+                     <li>
+                        <a href="#">Manage Assets</a>
+                        <ul class="nav">
+                           <li class="active"><a href="/#/asset-manage">Search & Manage</a></li>
+                        </ul>
+                     </li>
+                     <li>
+                        <a href="#">Reports</a>
+                        <ul class="nav">
+                           <li><a href="reports-overview.html">Saved Reports</a></li>
+                           <li><a href="reports-admin.html">Admin Reports & Templates</a></li>
+                        </ul>
+                     </li>
+                     <li>
+                        <a href="#">User Preferences</a>
+                        <ul class="nav">
+                           <li><a href="user-pref.html">Settings</a></li>
+                        </ul>
+                     </li>
+                  </ul>
+               </div>
+            </div>
+         </div>
+      </div>
+      
+ <!--      //---- popup---/
+     <h2>Modal Example</h2> -->
+
+
+
+<!-- The Modal to save filter-->
+<div id="myModal" class="modal">
+  <!-- Modal content -->
+  <div class="modal-content">
+    <span class="close">&times;</span>
+    <p>Please give name to this Filter</p>
+
+	  Filter name: <input type="text" id="fltname" name="fltname" ng-model="filterName"><br><br>
+	  <div class="pull-right" style="margin-top: 12px;">
+         <button id="SavePopBtn" type="button" class="btn btn-primary" ng-click="saveFilterModel();" ><span>Save Filter</span></button>
+         <button id="CancelPopBtn"  type="button" class="btn btn-primary" ng-click="rsestoreFromHardCoded();"><span>Cancel</span></button>
+      </div>
+  </div>
+</div>
+
+<!-- The Modal to view row detail-->
+<div ng-style="Modal2" id="myModal2" class="modal">
+  <!-- Modal content -->
+  <div class="modal-content2">
+    <span ng-click="closeModel2();" class="close">&times;</span>
+    <p style="font-size: 20px;" ><b>Detail of AssetID : {{viewRow.assetId}}</b></p>
+		<!--  
+		<table>
+			  <tr><td>AssetID:</td><td> {{viewRow.assetId}}</td></tr>
+			 <tr><td> manufactureNo:</td><td> {{viewRow.manufactureNo}}</td></tr>
+			 <tr><td> install:</td><td> {{viewRow.install}}</td></tr>
+			 <tr><td> endofSale:</td><td> {{viewRow.endofSale}}</td></tr>
+			 <tr><td> eolAnnoucement:</td><td> {{viewRow.eolAnnoucement}}</td></tr>
+			  <tr><td>serialNo:</td><td> {{viewRow.serialNo}}</td></tr>
+			  <tr><td>poNumber:</td><td> {{viewRow.poNumber}}</td></tr>
+			  <tr><td>installDate:</td><td> {{viewRow.installDate}}</td></tr>
+	  	</table>
+	  	
+	  	-->
+
+
+
+	  AssetID : {{viewRow.assetId}}<br>
+	  manufactureNo : {{viewRow.manufactureNo}}<br>
+	  install : {{viewRow.install}}<br>
+	  endofSale : {{viewRow.endofSale}}<br>
+	  eolAnnoucement : {{viewRow.eolAnnoucement}}<br>
+	  serialNo : {{viewRow.serialNo}}<br>
+	  poNumber : {{viewRow.poNumber}}<br>
+	  installDate : {{viewRow.installDate}}<br>
+	  <div class="pull-right" style="margin-top: 12px;">
+          <button id="closePopBtn"  type="button" class="btn btn-primary" ng-click="closeModel2();" ><span>Cancel</span></button>
+      </div>
+  </div>
+</div>
+
+<script>
+// Get the modal while savig filter details
+var modal = document.getElementById('myModal');
+
+// Get the button that opens the modal
+var btn = document.getElementById("myBtn");
+
+// Get the <span> element that closes the modal
+var span = document.getElementsByClassName("close")[0];
+var closePop = document.getElementById("CancelPopBtn");
+var savePop = document.getElementById("SavePopBtn");
+var txtfname = document.getElementById('fltname');
+// When the user clicks the button, open the modal 
+btn.onclick = function() {
+    modal.style.display = "block";
+}
+
+savePop.onclick = function() {
+	if(txtfname.value !=''){
+		txtfname.value='';
+	 	modal.style.display = "none";
+	}
+}
+
+
+//When the user clicks on <span> (x), close the modal
+span.onclick = function() {
+    modal.style.display = "none";
+}
+//When the user clicks on  close butn the modal
+closePop.onclick = function() {
+
+	//console.log('filter name: '+txtfname.value);
+	txtfname.value='';
+    modal.style.display = "none";
+}
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+    if (event.target == modal) {
+        modal.style.display = "none";
+    }
+}
+
+
+</script>
+     
+      
+   </body>
+   
+   <style>
+body {font-family: Arial, Helvetica, sans-serif;}
+
+/* The Modal (background) */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    padding-top: 100px; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content */
+
+
+.modal-content {
+    background-color: #fefefe;
+    margin: auto;
+    margin-top: -40%;
+    padding: 30px;
+    border: 3px solid #888;
+    width: 30%;
+    height: 200px;
+}
+.modal-content2 {
+    background-color: #fefefe;
+    margin: auto;
+    margin-top: -40%;
+    padding: 30px;
+    border: 3px solid #888;
+    width: 30%;
+    height: 400px;
+   
+}
+/* The Close Button */
+.close {
+    color: #aaaaaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+</style>
+</html>

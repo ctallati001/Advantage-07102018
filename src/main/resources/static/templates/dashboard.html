@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html class="desktop-menu-open" lang="en" ng-app="myApp" ng-controller="mainCtrl">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>Dimension Data | Advantage</title>
+  <!-- meta name="description" content="Description of the page less than 150 characters" --> <!-- meta description -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,300i,400,400i,700,700i">
+  <link rel="stylesheet"
+	href="bower_components/bootstrap/dist/css/bootstrap.min.css">	
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.3.15/angular.min.js"></script>
+	  <link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-select/0.11.2/select.css"/>	
+	 <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-select/0.11.2/select.js"></script>
+  
+	  <style>
+	  .page-wrapper {padding-top:40px !important}
+	  .dropdown.dropdown-scroll .dropdown-menu {
+    max-height: 200px;
+    width: 90px;
+    overflow: auto;
+}
+.search-control {
+    padding: 5px 10px;
+}
+	  </style>
+  <!-- link rel="stylesheet" href="css/app.min.css" --> <!-- your own stylesheet here -->
+  <link rel="apple-touch-icon" sizes="180x180" href="https://basecoat.cdn.dimensiondata.com/2.1.0/img/favicon/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="https://basecoat.cdn.dimensiondata.com/2.1.0/img/favicon/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="https://basecoat.cdn.dimensiondata.com/2.1.0/img/favicon/favicon-16x16.png">
+  <link rel="mask-icon" href="https://basecoat.cdn.dimensiondata.com/2.1.0/img/favicon/safari-pinned-tab.svg" color="#72bf44">
+<!--   <link rel="shortcut icon" href="https://basecoat.cdn.dimensiondata.com/2.1.0/img/favicon/favicon.ico">
+ -->  <link rel="manifest" href="manifest.json">
+   <script data-require="jquery@*" data-semver="2.1.1" src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+  <link data-require="bootstrap@*" data-semver="3.2.0" rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.css" />
+  <script data-require="bootstrap@*" data-semver="3.2.0" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.js"></script>
+  <meta name="theme-color" content="#ffffff">
+     
+</head>
+
+<body > 
+    <header class="site-header">
+<nav class="navbar navbar-fixed-top"> <!-- IMPORTANT: add the class `navbar-fixed-top` to position it at the top of the window -->
+
+  <!-- Left utility nav -->
+  <ul class="nav navbar-nav navbar-left">
+    <!-- Desktop menu toggle -->
+    <li class="desktop-menu-toggle hidden-mobile">
+      <a href="javascript:void(0)" data-toggle="desktop-menu" title="Desktop menu">
+        <div class="hidden-closed">Close</div>
+        <div class="hidden-opened"></div>
+      </a>
+    </li>
+    <li>
+      <!-- Company logo -->
+      <a class="horizontal-logo" href="/#/landing" title="Return home">
+        <div class="logo-image" title="Dimension Data"></div>
+        <div class="logo-title"><span style="font-size:18px !important">ADVANTAGE</span></div>
+      </a>
+    </li>
+  </ul>
+
+  <!-- Center utility nav -->
+  <!-- ul class="nav navbar-nav navbar-center"></ul -->
+
+  <!-- Right utility nav -->
+  <ul class="nav navbar-nav navbar-right">
+    <li class="hidden-mobile">
+      <!-- Plain text link -->
+      <a href="javascript:void(0)">Support</a>
+    </li>
+	    <li class="hidden-mobile">
+      <!-- Plain text link -->
+      <a href="javascript:void(0)">Contact</a>
+    </li>
+    <!-- Divider -->
+    <li role="separator" class="divider hidden-mobile"></li>
+    <!-- Dropdown menu -->
+    <li class="dropdown hidden-mobile">
+      <a href="#" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" class="dropdown-toggle">
+        <span class="fa fa-user"></span> {{profile.userName}}<span class="caret"></span>
+      </a>
+      <ul class="dropdown-menu">
+        <li><a href="/#/login">Logged Out</a></li>
+      </ul>
+    </li>
+    <!-- Divider -->
+    <li role="separator" class="divider hidden-mobile"></li>
+
+    <!-- Divider -->
+    <li role="separator" class="divider hidden-mobile"></li>
+    <li class="hidden-mobile">
+      <!-- Client logo -->
+      <div class="horizontal-logo" ng-if="profile.userType == 'client' ">
+        <!-- img should be wider than it is high (approx 4:1) and 24px (at least) in height -->
+        <a href="login.html"><img src="img/oracle-logo.gif" alt="Company name" class="hidden-dark"/></a>
+        <img src="img/oracle-logo.gif" alt="Company name" class="hidden-light"/>
+        <!-- a css background-image lets you to control the logo image using media queries or stylesheets (in case of switching themes) -->
+        <!-- div class="logo-image" title="Company name" style="background-image: url(img/client-logo.png)"></div -->
+      </div>
+    </li>
+    <!-- Mobile menu toggle -->
+    <li class="mobile-menu-toggle hidden-desktop" data-toggle="mobile-menu" title="Mobile menu">
+      <button type="button" class="navbar-btn btn"><i aria-hidden="true" class="fa fa-bars"></i></button>
+    </li>
+  </ul>
+</nav>
+
+
+ </header>
+  
+ <!--  <div class="desktop-menu-layout mobile-menu-layout">
+
+    <div class="desktop-menu">
+<div class="desktop-menu">
+  <div class="content">
+    <nav class="scrollbars scrollbars-light">
+      <ul class="nav" data-accordion-group>
+       <li class="active"><a href="/#/home">Dashboard</a></li>
+        <li><a class="next collapsed" data-toggle="collapse">Manage Assets</a>
+          <ul class="collapse">
+            <li><a href="/#/asset-manage">Search & Manage</a></li>
+          </ul>
+        </li>
+        <li><a class="next collapsed" data-toggle="collapse">Reports</a>
+          <ul class="collapse">
+            <li><a href="/#/report-overview">Saved Reports</a></li>
+			<li><a href="/#/report-admin">Admin Reports & Templates</a></li>
+          </ul>
+        </li>
+        <li><a class="next collapsed" data-toggle="collapse" >User Preferences</a>
+          <ul class="collapse">
+            <li><a href="/#/user-pref">Settings</a></li>
+          </ul>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</div>
+
+
+  </div>
+
+
+ 
+      <main class="page-wrapper">
+      
+       
+        <div class="form-group row">
+  <label for="example-text-input" class="col-2 col-form-label">Text</label>
+  <div class="col-10">
+    <input class="form-control" type="text" value="Artisanal kale" id="example-text-input">
+  </div>
+</div>
+<div class="form-group row">
+  <label for="example-search-input" class="col-2 col-form-label">Search</label>
+  <div class="col-10">
+    <input class="form-control" type="search" value="How do I shoot web" id="example-search-input">
+  </div>
+</div>
+<div class="form-group row">
+  <label for="example-email-input" class="col-2 col-form-label">Email</label>
+  <div class="col-10">
+    <input class="form-control" type="email" value="bootstrap@example.com" id="example-email-input">
+  </div>
+</div>
+<div class="form-group row">
+  <label for="example-url-input" class="col-2 col-form-label">URL</label>
+  <div class="col-10">
+    <input class="form-control" type="url" value="https://getbootstrap.com" id="example-url-input">
+  </div>
+</div>
+<div class="form-group row">
+  <label for="example-tel-input" class="col-2 col-form-label">Telephone</label>
+  <div class="col-10">
+    <input class="form-control" type="tel" value="1-(555)-555-5555" id="example-tel-input">
+  </div>
+</div>
+<div class="form-group row">
+  <label for="example-password-input" class="col-2 col-form-label">Password</label>
+  <div class="col-10">
+    <input class="form-control" type="password" value="hunter2" id="example-password-input">
+  </div>
+</div>
+<div class="form-group row">
+  <label for="example-number-input" class="col-2 col-form-label">Number</label>
+  <div class="col-10">
+    <input class="form-control" type="number" value="42" id="example-number-input">
+  </div>
+</div>
+<div class="form-group row">
+  <label for="example-datetime-local-input" class="col-2 col-form-label">Date and time</label>
+  <div class="col-10">
+    <input class="form-control" type="datetime-local" value="2011-08-19T13:45:00" id="example-datetime-local-input">
+  </div>
+</div>
+<div class="form-group row">
+  <label for="example-date-input" class="col-2 col-form-label">Date</label>
+  <div class="col-10">
+    <input class="form-control" type="date" value="2011-08-19" id="example-date-input">
+  </div>
+</div>
+<div class="form-group row">
+  <label for="example-month-input" class="col-2 col-form-label">Month</label>
+  <div class="col-10">
+    <input class="form-control" type="month" value="2011-08" id="example-month-input">
+  </div>
+</div>
+<div class="form-group row">
+  <label for="example-week-input" class="col-2 col-form-label">Week</label>
+  <div class="col-10">
+    <input class="form-control" type="week" value="2011-W33" id="example-week-input">
+  </div>
+</div>
+<div class="form-group row">
+  <label for="example-time-input" class="col-2 col-form-label">Time</label>
+  <div class="col-10">
+    <input class="form-control" type="time" value="13:45:00" id="example-time-input">
+  </div>
+</div>
+<div class="form-group row">
+  <label for="example-color-input" class="col-2 col-form-label">Color</label>
+  <div class="col-10">
+    <input class="form-control" type="color" value="#563d7c" id="example-color-input">
+  </div>
+</div>
+         <div class="container">
+          <div class="row">
+            <div class="col-xs-12">
+      
+              <div class="pull-left">
+                <h2 class="main-heading">Overview</h2>
+                <p>DashBoard Message</p>
+              </div>
+     
+ 
+
+			  
+               <div style="clear:both">
+                  
+				  <div class="pull-left col-xs-3" style="100px;margin-top:100px">
+				  <h3 class="accent-heading pull-left">Status</h3>
+     
+                  <span class="status-indicators">
+
+								<div class="dropdown dropdown-scroll">
+									<button class="btn btn-default dropdown-toggle" type="button"
+										id="dropdownMenu1" data-toggle="dropdown">
+										{{selectedRow.name}} <span class="caret"></span>
+									</button>
+									<ul class="dropdown-menu" id="dropdown-menu" role="menu"
+										aria-labelledby="dropdownMenu1">
+										<li role="presentation">
+											<div class="input-group input-group-sm search-control">
+												<span class="input-group-addon"><span
+													class="glyphicon glyphicon-search"></span></span> <input
+													type="text" class="form-control" placeholder="Query"
+													ng-model="query" id="datebox">
+											</div>
+										</li>
+										<li role="presentation"
+											ng-repeat='item in items | filter:query' ng-click="getSelectItems(item)"><a href="#">
+												{{item.name}}<span style="background-color: {{item.color}}">&nbsp;&nbsp;&nbsp;&nbsp;</span></a></li>
+									</ul>
+								</div> <span class="badge-dot status-ontime"><input type="radio" name="report"  ng-model="endType" value="eol" checked/></span> EOL
+                    <span class="badge-dot status-missed"><input type="radio" name="report" ng-model="endType" value="edate" /></span> Expired / Expiring
+                  </span>
+				   
+				  <span style="font-size:90%">
+					<select ng-model="itemid"  ng-change="ChangeValue(itemid);" ng-options="i.id as i.name for i in ExpiredLst">
+					 <option style="display:none" value="">Select Option</option>
+					
+					</select> 
+	  			 </span>
+	  			 <br/> <br/> <br/>
+	  			 <span style="font-size:90%" ng-if = "flag" >
+	  			 <table class="table">
+	  			 <tr>
+	  			 	<td>From:</td>
+	  			 	<td><input type="text" placeholder="Enter From Date" class="form-control" ng-model="formData.fromdate"  my-date-picker /></td>
+	  			 	
+	  			 </tr>
+	  			 <tr>
+		  			 <td>To:</td>
+		  			 <td><input type="text" placeholder="Enter To Date" class="form-control" ng-model="formData.todate" my-date-picker /></td>
+	  			 </tr>
+	  			 <tr>
+	  			 	<td>
+	  			 		
+	  			 	</td>
+	  			 </tr>
+				</table>		
+ 	  			 </span>
+				  <form>
+					<span style="font-size:90%"><input type="radio" name="report" value="r1" checked/> Expired - 30D</span><br>
+				  <span style="font-size:90%"><input type="radio" name="report" value="r3"/> Expired - 90D</span><br>
+				  <span style="font-size:90%"><input type="radio" name="report" value="r4"/> Expired - Specific Date</span><br>
+		          
+				  </form>
+				  
+				  
+
+				  </div>
+				 <div class="pull-right col-xs-9"> 
+              <img src="img/world-map.png" class="top-gutter bottom-gutter hidden-dark" alt="Graph Light"/>
+              <img src="img/dd-graph-dark.svg" class="top-gutter bottom-gutter hidden-light" alt="Graph Dark"/>
+     </div>
+</div>	 
+	                <div class="pull-right" style="clear:both">
+                <button type="button" class="btn btn-primary" ng-click="viewAllAssets('all');"><span>View All Assets</span></button>
+				<button type="button" class="btn btn-primary" ng-click="viewAllAssets('Expired');"><span>View Expiring Assets</span></button>
+              </div>
+            </div>
+          </div>
+        </div>
+      <span ng-if="showDetails">
+        <div class="nav-tabs-responsive scrollbars">
+          <ul class="nav nav-tabs nav-centered" data-footer-tabs>
+            <li class="active"><a data-toggle="tab" href="#tab1">Global</a></li>
+            <li><a data-toggle="tab" href="#tab2">North America</a></li>
+            <li><a data-toggle="tab" href="#tab1">EMEA</a></li>
+            <li><a data-toggle="tab" href="#tab2">Asia Pacific</a></li>
+            <li class="disabled"><a data-toggle="tab" href="#tab1">Japan</a></li>
+          </ul>
+        </div>
+      
+      	
+		</div>
+		
+	 -->	
+		 <div class="ibox-content">
+                              <div style="width: 900px;    margin-left: 240px;">
+                                 <div style="padding: 4px">
+                                    <div style="float: right;">
+                                       
+                                     
+                                    </div>
+                                    <div style="padding: 4px;">
+                                       <b>Report for Asset Management</b> <span id="rowCount"></span>
+                                    </div>
+                                    <div style="clear: both;"></div>
+                                 </div>
+                                 <div style="width: 150%; height: 400px;"
+                                    id="bestHtml5Grid"
+                                    class="ag-theme-fresh ag-basic">
+                                 </div>
+                              </div>
+                           </div>
+          
+
+			  
+      <br/><br/>	
+    <footer class="site-footer">
+      <p>&copy; Copy Right Reserved for DimensionData.com</p>
+    </footer>
+<!--
+    <div class="mobile-menu">
+      <div class="content">
+<div class="scrollbars scrollbars-light">
+<nav class="drilldown">
+<ul class="nav">
+<li class="menu-header">
+<div class="horizontal-logo" data-toggle="mobile-menu" title="Close menu">
+<div class="logo-image" title="Dimension Data">
+</div>
+<div class="logo-title">
+<span>advantage</span>
+</div>
+</div>
+</div>
+</div>
+	  
+    </div> 
+
+  </div>-->
+   <script>
+   $('#dropdown-menu li').on('click', function(){
+	   alert('hi');
+	   console.log($(this).text());
+       console.log($('#datebox').val($(this).text()));
+    });
+   
+   $('#dropdown-menu li a').on('click', function(){
+	   alert('hi a');
+	   console.log($(this).text());
+	    $('#datebox').val($(this).html());
+	});
+	
+    $('.dropdown-menu').find('input').click(function (e) {
+      e.stopPropagation();
+    });
+  </script>  
+</body>
+
+</html>
+
+

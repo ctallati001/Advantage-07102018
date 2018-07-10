@@ -1,0 +1,742 @@
+.ag-basic .ag-cell {
+    padding-top: 2px !important;
+    padding-bottom: 2px !important;
+}
+#wrapper {
+  width: 100%;
+}
+#page-wrapper {
+  padding: 0 15px;
+  min-height: 568px;
+  background-color: white;
+}
+@media (min-width: 768px) {
+  #page-wrapper {
+    position: inherit;
+    margin: 0 0 0 250px;
+    padding: 0 30px;
+    border-left: 1px solid #e7e7e7;
+  }
+}
+
+/* @import url('https://fonts.googleapis.com/css?family=Roboto:300,400,400i,500,500i,700,700i'); */
+/*@import url('css/icomoon-fonts.css');*/
+/*font-family: 'Roboto', sans-serif;*/
+html,body { font-size: 14px; font-family: 'Roboto', sans-serif; background-color: #f2f2f2 !important }
+html{ font-size:100%; -ms-text-size-adjust:100%; -webkit-text-size-adjust:100% }
+a{ outline:none; color:#4fc287 }
+a:hover{ outline:none; text-decoration:none; color:#349864 }
+h5, .h5{ font-size:18px; line-height:25px }
+.head-title h5, .head-title  .h5{ margin-bottom:0 }
+h6, .h6{ font-size:1.15rem }
+p.p-0{ font-size:1.13rem; color:#6d6d6d; background-color: inherit }
+
+main{  padding-left:20px !important; padding-right:20px !important; padding-bottom: 20px !important }
+
+/* Sign in Page */
+.form-signin{  width: fit-content;  margin: auto }
+.login-header{  background-color: #fff }
+.login-logo{ margin-bottom:15px }
+.success { background-color: #4fc287; border-color: #4fc287; color: #fff }
+.form-signin a{ color:#8a8a8a; background-color: inherit; text-decoration:none; font-size:13px; font-weight:400 }
+.form-signin a:hover{ color:#4fc287; background-color: inherit }
+#forgotPasswordModal .modal-body p{ margin-bottom:8px }
+/* Sign in page */
+.bg-darkish{ background-color: #273238 }
+.icons{ height: 16px; width: 16px }
+.menu-divider{ height: 0; margin:0; overflow: hidden; border-top: 1px solid #1b2429 }
+.breadcrumb{ background-color: #f2f2f2; font-size: 12px }
+.breadcrumb-item a{ color: #4fc287 }
+.card-header h5{ margin-bottom:0 }
+.card-header h5 img{ height:24px; margin-right:5px }
+.ams-thead{background-color:#8e9aa0;color:#fff;font-size:.75rem}
+.ams-player-grid{float:left;padding-right:.6rem}
+.ams-card-header{background:#52c490;color:#fff}
+.ams-listitem{color:#4fc287;margin-right:5px}
+.ams-card-divider{background-color:#e1e1e1;font-size:14px;padding:7px 20px}
+.ams-card-divider h5{font-size:14px;color:#273238}
+table{font-size:.75rem}
+.ams-table-head{background-color:#8e9aa0;color:#fff}
+.card-body table tbody td img{height:8rem;width:8rem;margin-right:.4rem;margin-left:.3rem;text-align:center}
+
+/* rules for desktop or bigger screens here */
+
+.side-bar{position:fixed;width:225px;height:100%;background-color:#273238;padding:0}
+.side-bar-light{background-color:#eee;border-right:none}
+.side-bar .list-container{width:100%}
+.side-bar .list-container ul{list-style-type:none;padding:0;margin:0;width:100%;background:#273238}
+.side-bar .list-container ul li,.side-bar .navbar-brand{display:block;width:100%;margin:0;border-bottom:1px solid #1b2429}
+.side-bar-light .list-container ul li,.side-bar-light .navbar-brand{border-bottom:1px solid #bbb}
+.side-bar .navbar-brand{background:#273238;padding:9px 0 9px 23px}
+.side-bar-light .navbar-brand{background:#ddd;color:#111}
+.side-bar .navbar{padding:0;border:none}
+.side-bar .list-container ul li a{display:block;padding:14px 10px 14px 23px;width:100%;color:#b3b3b3;font-size:14px;font-family:'Roboto',sans-serif;text-decoration:none}
+.side-bar .list-container > ul > li{ position: relative }
+.side-bar .list-container > ul > li > ul{ background-color:#1f292e }
+.side-bar .list-container > ul > li > ul > li > a{ padding-left:52px }
+.side-bar-light .list-container ul li a { color: #fff }
+.side-bar .list-container ul li .active,
+.side-bar .list-container ul li a:hover,
+.side-bar ul.sub-menu a.active { background:#4fc287 !important; color: #fff !important }
+.side-bar .list-container > ul > li > ul > li > a.active{ color:#4fc287; background-color:#1f292e }
+.side-bar .list-container > ul .arrow{ font-size:10px; position: absolute; right:20px; top:20px }
+.side-bar-light .list-container ul li .active { border-left: 0.3rem solid rgba(220, 74, 79, 0.9) }
+.side-bar .navIcon { padding: 0.4rem }
+.side-bar-light .list-container ul li a:hover { background: rgba(220, 74, 79, 0.9); color: #fff }
+.side-bar .list-container ul li .icon{ width:20px; min-height:20px; font-size:20px; float: left; margin-right:10px }
+
+.bodyContent { margin-top: 0px; margin-left: 225px }
+.ams-top-bar{ background-color: #fff; width: 100%; border-bottom:1px solid #e6e6e6;
+  -webkit-box-shadow: #e6e6e6 0px 0px 3px;
+  -moz-box-shadow: #e6e6e6 0px 0px 3px;
+  box-shadow: #e6e6e6 0px 0px 3px }
+.navbar.ams-top-bar{ height:56px }
+#toggler{ display:none }
+ul.nav-menu{ float: right; margin-bottom: 0; z-index:999 }
+ul.nav-menu > li img{ margin-right:5px; width: 33px; height: 33px; background:#fff }
+ul.nav-menu > li:last-child{ margin-left:15px }
+#notifications{ margin-top:8px }
+.nav-menu .nav-item{font-size:14px;font-weight:500;position:relative;padding:0}
+.nav-menu .nav-item:before{ display: none }
+nav.navbar .badge{width:15px;height:15px;padding:0;text-align:center;font-size:10px;line-height:13px;color:#fff;background-color:red;border:1px solid rgba(255,255,255,0.6);position:absolute;top:1px;right:-5px;-webkit-border-radius:100%;-moz-border-radius:100%;border-radius:100%}
+.ams-sub-title{display:block;font-size:14px;line-height:15px;color:#7b7b7b;font-weight:400}
+.navbar-light .navbar-brand{font-size:12px;color:#273238}
+.ams-top-bar .dropdown-menu{padding:0;margin:0}
+.ams-top-bar .dropdown-menu > li{ overflow: hidden; border-bottom:1px solid #e4e4e4; font-size:13px !important; line-height:18px !important }
+.ams-top-bar .dropdown-menu > li > a{ padding:12px 8px; background-color:#fff; white-space: inherit }
+.ams-top-bar .dropdown-menu > li > a:hover{ background-color:#f8f8f8 }
+.ams-top-bar .dropdown-menu > li .icon{ width:48px; font-size:48px; color:#4fc287; margin-right:12px }
+.ams-top-bar .dropdown-menu > li h3{ font-size:14px; font-weight:500; margin-bottom:0; padding-bottom:0; color:#868686 }
+.ams-top-bar .dropdown-menu > li span{ display: block; font-weight:300; padding-bottom:3px; color:#868686 }
+.ams-top-bar .dropdown-menu > li small{ display: block; font-size:13px !important; line-height:14px; font-weight:300; padding-bottom:0; color:#868686 }
+.ams-top-bar .dropdown-menu > li:last-child a{ padding-top:7px; padding-bottom:7px; font-size:13px; color:#4dc2f9 }
+.notifications-menu{ width: 322px; left:-302px; top:42px;
+  -webkit-border-radius: 2px;
+  -moz-border-radius: 2px;
+  border-radius: 2px }
+.user .notifications-menu{ width:170px; left:inherit !important; right:0 !important; top:44px }
+.user .notifications-menu li{ padding:9px 12px }
+.user .notifications-menu li svg{ font-size:13px; color:#b3b3b3; margin-right:6px }
+.user .notifications-menu li a{ padding:0; font-size:13px; color:#6d6d6d !important; background-color:#fff; font-weight:300 }
+.user .notifications-menu li a:hover{ background-color:#fff; color:#4dc2f9 !important; text-decoration:none !important }
+.user .notifications-menu li a:hover svg{ color:#4dc2f9 }
+.notifications-menu.show .notification-img{ width:45px; height:45px; margin-right: 12px; background-color:#cbcbcb !important }
+.notification-content{overflow:auto;text-overflow:ellipsis;color:#000}
+.nav-item a{color:#273238;padding:0}
+#notifications .icon-bell{ width:18px; min-height:18px; background:url('assets/notification-small.svg') no-repeat 0 0; display:inline-block }
+#notifications-m{ color: #fff }
+#notifications .icon{ font-size:17px; color:#5f5f5f }
+.ams-display-inline{display:inline-block!important}
+.ams-notification-text{color:#273238}
+.ams-strip-list li:nth-of-type(even){background-color:#fbfbfb}
+.ams-strip-list li:nth-of-type(odd){background-color:#fff}
+.ams-nav-tabs{color:#64c6f6!important;font-size:14px}
+
+.content-wrapper{ overflow: hidden; background-color:#fff;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius:4px;
+  -webkit-box-shadow: #dbdbdb 0px 0px 5px;
+  -moz-box-shadow: #dbdbdb 0px 0px 5px;
+  box-shadow: #dbdbdb 0px 0px 5px }
+.content-inner{ padding:15px 14px }
+/*Upcoming Game Page Css Start-----------------------------------------------------*/
+.text-vs{ min-width:30px; display: inline-block }
+.team-logo{ min-width:30px; display: inline-block; margin-right:5px }
+.team-logo img{ width:30px; height:30px }
+.text-time{ font-weight:300 }
+.weather-icon{ min-width:50px; display: inline-block; float: left }
+.weather-icon img{ width:35px; height:auto }
+.text-weather{ padding-top:7px; display: inline-block; float: left }
+
+/*My Profile Page Css Start-----------------------------------------------------*/
+ol.breadcrumb{ margin-bottom:0px; padding-top:0px; font-size:14px }
+.breadcrumb-item + .breadcrumb-item:before { padding-right:0.3rem; padding-left:0.3rem }
+.head-title{ margin-bottom:12px }
+.profile-details img{ width:100%; margin-bottom:10px; display: block;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 3px }
+.profile-details p{ font-size:14px; line-height:25px; color:#6d6d6d; background-color: inherit }
+.content-box{ width:100%; padding:20px; background: #fff;
+  -webkit-box-shadow: #ccc 0px 0px 3px;
+  -moz-box-shadow: #ccc 0px 0px 3px;
+  box-shadow: #ccc 0px 0px 3px;
+  -webkit-border-radius: 2px;
+  -moz-border-radius: 2px;
+  border-radius: 2px }
+hr.hr{ margin-top:0.7rem }
+
+
+/*NOTIFICATIONS Page Css Start-----------------------------------------------------*/
+ul.notification-list{ padding:0; margin:0 }
+ul.notification-list > li{ padding:10px 15px; margin:0; list-style:none; border-bottom:1px solid #ededed }
+ul.notification-list > li:last-child{ border-bottom:none }
+ul.notification-list > li img{ width: 36px !important; height:36px !important; margin-right:10px; float: left; }
+ul.notification-list > li .media-body{ margin-left:52px; font-size:14px; line-height:18px; font-weight:500; color:#7b7b7b }
+ul.notification-list > li .media-body a{ color:#7b7b7b; font-weight:500 }
+ul.notification-list > li .media-details{ color:#8e8e8e; font-weight:400; font-size:13px; padding:3px 0 8px }
+ul.notification-list > li .media-body a:hover{ color:#7b7b7b }
+.notification-img{ width:35px; height:35px; float: left;margin-top: -10px;margin-right: 16px; background-position: center !important; background-repeat: no-repeat !important; background-size: cover !important; background-color:#cbcbcb !important;
+-webkit-border-radius: 100%;
+-moz-border-radius: 100%;
+border-radius: 100% }
+.notification-filter{ margin-bottom:15px }
+.form-group.form-notification{ width:325px !important; float: right !important; margin:0 0 0 15px !important }
+.notification-filter .form-group label{ width:125px !important; line-height:24px; padding-top:4px; padding-right:1%; float: left }
+.notification-filter .form-group .form-control{ width:200px !important; float: right }
+.form-group.form-search{ width:270px !important; float: right !important; margin:0 0 0 15px !important }
+.notification-filter .form-group.form-search label{ width:70px !important }
+.ams-notification-footer{ color: #4fc287; display: block; font-size:12px; font-weight:300 }
+
+
+/*Today Game Page Css Start-----------------------------------------------------*/
+.card{ border:none }
+.cards-wrapper .card-header{ padding:18px 18px }
+.cards-wrapper .card-header .icons{ width:40px; font-size:30px; float: left }
+ul.check-lists{ padding:0; margin:0 }
+ul.check-lists > li{ padding:0 0 15px; margin:0; list-style:none; font-size:14px; font-weight:300; line-height:19px; color:#7b7b7b }
+ul.check-lists > li svg{ font-size:14px; font-weight:300; vertical-align:top; padding-top:4px; margin-right:10px }
+.plan-wrapper{ width:100%; height:100%; padding:0; background: #fff; overflow: hidden;
+  -webkit-box-shadow: #ccc 0px 0px 3px;
+  -moz-box-shadow: #ccc 0px 0px 3px;
+  box-shadow: #ccc 0px 0px 3px;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px }
+.plan-header{ padding:17px 18px; color:#fff; background-color:#52c490 }
+.plan-header h4{ padding:0; margin:0; font-size:16px; line-height:30px; font-weight:400 }
+.plan-header h4 span.icons{ width:40px; font-size:30px; float: left }
+.plan-body{ padding:1.25rem }
+ul.list-unstyled{ padding:0; margin:0; font-size:14px; line-height:18px; font-weight:300; color:#7b7b7b; background-color: transparent }
+ul.list-unstyled > li{ list-style:none; padding:0 0 14px 18px; margin:0; position: relative; color:#7b7b7b }
+ul.list-unstyled > li:before{ font-size:8px; font-weight:300; color:#52c490; position: absolute; top:0; left:0; content:'\e903'; font-family:'icomoon' }
+.icon-note{ font-size:28px; color:#b3b3b3 }
+
+ul.unstyled-02{ padding:0; margin:0; font-size:14px; line-height:18px; font-weight:400; color:#7b7b7b; background-color: transparent }
+ul.unstyled-02 > li:before{ font-size:18px; font-weight:300; color:#f5a044; position: absolute; top:0; left:0; content:'\f0da'; font-family:'fontawesome' }
+.jersey-no{ width:90px !important; min-width:90px !important }
+
+/*Player Details Page Start -------------------------------------------------------*/
+.chart-zone-box{ width:100%; padding-bottom:26px; padding-top:0; text-align: center; font-size:14px; font-weight:400 }
+.chart-zone-box img{ max-width:100%; display: block; margin:0 auto 10px }
+.chart-zone-box p{ padding-bottom:0; margin-bottom:0 }
+.chart-zone-box p span{ display: block }
+.player-img{ float: left; margin:0 8px 0 0 }
+.chart-zone .content-wrapper{ height:100% }
+.chart-zone h5{ padding:0; margin:0 0 15px }
+.chart-zone .nav-tabs{ width:calc(100% + 28px); padding:0; margin-left:-14px !important; margin-right:-14px !important }
+.chart-zone .nav-tabs > li { border:none; padding:0 !important; margin:0 !important; list-style:none }
+.chart-zone .nav-tabs > li > a{ padding:0 12px 3px !important; margin:0 !important; display: block; border:none; border-bottom:2px solid rgba(0,0,0,0); color:#6d6d6d; background-color: inherit }
+.chart-zone .nav-tabs > li > a:hover, .chart-zone .nav-tabs > li > a.active{ color:#50c287; background-color: inherit; border:none; border-bottom: 2px solid #51c08b }
+.chart-zone .nav-tabs > li:hover{ padding:0 !important; margin:0 !important }
+.check-lists.list-01{ margin-top:15px; margin-bottom:32px }
+.check-lists.list-01 > li{ font-weight:400 }
+.check-lists.list-01 svg{ font-size:20px; color:#f5a044; padding-top:0 }
+.note-wrapper .tab-content{ padding-top:15px }
+
+/*Custom Form Css Start ---------------------------------------------------------------*/
+label{ color:#273238; background-color: inherit; font-size:14px; margin-bottom:6px }
+label.label{ line-height:32px }
+.form-control{ height:34px; font-size:14px; line-height:32px; padding:0 8px; border-color:#cecece; color:#6d6d6d; background-color:#fff }
+.form-control option{ padding:0 }
+select.form-control, select{ background: url('assets/images/select-dropdown-arrow.png') no-repeat right center #fff; -webkit-appearance: none; -moz-appearance: none  }
+select.form-control:focus, select:focus{ background: url('assets/images/select-dropdown-arrow.png') no-repeat right center #fff }
+select.form-control::-ms-expand, select::-ms-expand { display:none }
+select.form-control option, select option{ padding-top:10px; padding-bottom:10px; font-size:13px }
+.form-control:disabled, .form-control[readonly]{ color:#6d6d6d; background-color:#f2f2f2; border-color:#cecece }
+select.form-control:not([size]):not([multiple]){ height:34px; line-height:32px }
+.form-control:focus{ border-color:rgba(39,50,56,0.3);
+box-shadow:0 0 0 0.1rem rgba(39,50,56,0.25);
+-webkit-box-shadow:0 0 0 0.1rem rgba(39,50,56,0.25);
+-moz-box-shadow:0 0 0 0.1rem rgba(39,50,56,0.25) }
+.input-control-feel, .form-control-inched{ width:50%; margin-right:8px }
+.notifySelectpicker{ margin-top:10px }
+
+
+/*Custom Button Css Start-------------------------------------------------------------*/
+.btn{ font-size:15px; line-height:38px; padding:0 20px;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px }
+.btn-outline-primary{ border-color:#4fc287; color:#4fc287 }
+.btn-outline-primary:hover, .btn-outline-primary.active, .btn-outline-primary:focus{ border-color:#4fc287; color:#fff; background-color:#4fc287 !important; outline:none; box-shadow: none }
+.btn-outline-primary:not(:disabled):not(.disabled):active, .btn-outline-primary:not(:disabled):not(.disabled).active, .show > .btn-outline-primary.dropdown-toggle{ border-color:#4fc287; outline:none; box-shadow: none }
+.btn-outline-primary:not(:disabled):not(.disabled):active:focus, .btn-outline-primary:not(:disabled):not(.disabled).active:focus, .show > .btn-outline-primary.dropdown-toggle:focus{ border-color:#4fc287; outline:none; box-shadow: none }
+.btn-primary{ min-width:94px; border-color:#4fc287; color:#fff; background-color:#4fc287 }
+.btn-primary:hover, .btn-outline-primary.active, .btn-outline-primary:focus{ border-color:#72cd9d; color:#fff; background-color:#72cd9d !important; outline:none; box-shadow: none }
+.btn-primary:not(:disabled):not(.disabled):active, .btn-primary:not(:disabled):not(.disabled).active, .show > .btn-primary.dropdown-toggle{ border-color:#72cd9d; color:#fff; background-color:#72cd9d !important; outline:none; box-shadow: none }
+.btn-primary:focus, .btn-primary.focus{ box-shadow:0 0 0 0.2rem rgba(114,205,157,0.5) !important; -webkit-box-shadow:0 0 0 0.2rem rgba(114,205,157,0.5) !important; -moz-box-shadow:0 0 0 0.2rem rgba(114,205,157,0.5) !important }
+.float-right .btn{ margin:0 0 0 10px }
+.btn-sm, .btn-group-sm > .btn{ line-height:33px }
+.btn-group-center{ overflow: hidden; margin-top:20px }
+.btn-group-center .btn{ width:47% }
+.form-group{ margin-bottom:15px}
+.btn-auto{ width:auto !important; min-width:auto !important }
+.btn-primary + .dropdown-menu .dropdown-item.active, .btn-primary + .dropdown-menu .dropdown-item:active{ color:#fff; background-color:#4fc287 }
+.btn-icon{ width:34px; height:34px; line-height:32px; padding:0 !important }
+.btn-icon span{ font-size:12px; line-height:32px; display: block; font-weight:300 }
+.link-back{ font-size:14px; margin-bottom:8px; display:inline-block; cursor:pointer }
+.link-back span{ font-size:10px  }
+
+/*Modal Custom Css Start------------------------------------------------------------------------------*/
+.modal-header{ padding:0.7rem 1rem; border-bottom-color:#e6e6e6 }
+.modal-title{ font-weight:400; color:#545454 }
+.modal-header .close{ outline: none;
+  -webkit-transform: rotate(45deg);
+  -moz-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  -o-transform: rotate(45deg);
+  transform: rotate(45deg);
+  filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3) }
+.modal-header .close span{ outline: none; font-family:"Times New Roman", Times, serif; font-size:20px; color:#333 }
+.modal-body-content{ min-height:350px; border:1px solid #cecece; padding:12px 10px; color: #6d6d6d;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius:4px }
+.modal-footer{ border-top:none; padding-top:0 }
+.form-check{ margin-bottom:5px }
+
+/*Table Custom Css Start-------------------------------------------------------------------------------*/
+.table-wrapper{ overflow: hidden; background-color:#fff;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius:4px;
+  -webkit-box-shadow: #dbdbdb 0px 0px 5px;
+  -moz-box-shadow: #dbdbdb 0px 0px 5px;
+  box-shadow: #dbdbdb 0px 0px 5px }
+.card{ overflow: hidden; background-color:#fff;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius:4px;
+  -webkit-box-shadow: #dbdbdb 0px 0px 5px;
+  -moz-box-shadow: #dbdbdb 0px 0px 5px;
+  box-shadow: #dbdbdb 0px 0px 5px }
+.table{ margin-bottom:0 }
+.table th{ border-bottom:none !important }
+.table th, .table td{ padding:10px; font-size:14px; color:#7b7b7b; vertical-align: middle; font-weight:400; border-top: inherit; border-bottom:1px solid #ededed }
+.table th:first-child, .table td:first-child{ padding-left:20px }
+.table th{ font-size:16px; font-weight:500 }
+.table tbody th{ font-size:14px; font-weight:400 }
+.table thead th{ color:#fff; font-weight:400; font-size:14px; padding:7px 5px 7px 10px }
+.table thead th:first-child{ padding-left:20px }
+.table thead th:last-child{ padding-right:20px }
+.table tbody td:last-child{ padding-right:20px }
+.table td strong{ font-size:16px; line-height:16px; font-weight:500; color:#273238 }
+.table td .ams-sub-title{ font-size:14px; line-height:15px; color:#7b7b7b }
+.table-striped tbody tr:nth-of-type(odd) { background-color:#fbfbfb }
+.table-striped tbody tr:nth-of-type(even) { background-color:#fff }
+.table-striped tbody tr:nth-of-type(2n+1){ background-color:#fff !important }
+.table-striped tbody tr:nth-of-type(2n){ background-color:#fbfbfb !important }
+tr:nth-child(even) {background-color:#fbfbfb }
+table.table-bordered.dataTable tbody th, table.table-bordered.dataTable tbody td{ border-bottom:1px solid #ededed }
+.pagination > li{ font-size:14px }
+.pagination > li > a{ color:#4fc287 }
+.page-item.active .page-link{ background-color:#4fc287; border-color:#4fc287 }
+table.dataTable{ margin:5px 0 15px !important }
+.dataTables_wrapper.container-fluid{ padding:0 }
+.data-table{ overflow: hidden; background-color:#fff;
+	-webkit-border-radius: 4px;
+	-moz-border-radius: 4px;
+	border-radius:4px;
+	-webkit-box-shadow: #dbdbdb 0px 0px 5px;
+	-moz-box-shadow: #dbdbdb 0px 0px 5px;
+	box-shadow: #dbdbdb 0px 0px 5px }
+.data-table td{ padding-bottom:6px; padding-top:6px }
+table.dataTable > tbody > tr.child td.child{ padding-left:10px !important }
+table.dataTable > tbody > tr.child ul.dtr-details{ width:100% }
+table.dataTable.dtr-inline.collapsed > tbody > tr[role="row"] > td:first-child:before, table.dataTable.dtr-inline.collapsed > tbody > tr[role="row"] > th:first-child:before { background-color:#f5a044; webkit-border-radius:0px;
+  -moz-border-radius: 0px;
+  border-radius: 0px;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none }
+table.dataTable thead .sorting:before, table.dataTable thead .sorting:after, table.dataTable thead .sorting_asc:before, table.dataTable thead .sorting_asc:after, table.dataTable thead .sorting_desc:before, table.dataTable thead .sorting_desc:after, table.dataTable thead .sorting_asc_disabled:before, table.dataTable thead .sorting_asc_disabled:after, table.dataTable thead .sorting_desc_disabled:before, table.dataTable thead .sorting_desc_disabled:after{ bottom:0.7em }
+table td a, table th a{ color:#7b7b7b }
+div.dataTables_wrapper div.dataTables_length label, div.dataTables_wrapper div.dataTables_filter label{ font-weight:500 }
+table tbody tr:hover td, table tbody tr:hover th{ background-color:#effff7 !important }
+.text-secondary{ color:#273238 !important }
+.text-warning{ color:#ff842a !important }
+.text-danger{ color:#ff0b16 !important }
+.table-clickable td{ cursor:pointer }
+
+/*AMS Coach - Dashboard Css Start------------------------------------------------------------------------------*/
+.player-name{ font-size:14px !important; padding-top:10px; display: block }
+
+/*AMS Coach - Upcoming Games Css Start------------------------------------------------------------------------------*/
+.team-name{ white-space: nowrap }
+.upcoming-games{ margin-bottom:20px }
+.series-notes-box{ margin-bottom:20px }
+.series-notes-box, .past-games-box{ overflow: hidden; background-color:#fff;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius:4px;
+  -webkit-box-shadow: #dbdbdb 0px 0px 5px;
+  -moz-box-shadow: #dbdbdb 0px 0px 5px;
+  box-shadow: #dbdbdb 0px 0px 5px }
+.notes-header{ padding:15px 11px; margin-bottom:0; border-bottom:1px solid #ededed }
+.notes-header h5{ margin-bottom:0 }
+.notes-content{ width:100% }
+.no-notes{ width:100%; padding:85px 0 53px; font-size:15px; color:#7b7b7b }
+.no-notes-icon{ width:64px; height:64px; display: inline-block; background:url('assets/no-notes.svg') no-repeat center }
+.btn-add-series-notes{ margin-bottom:30px }
+.past-games-box table tr th, .past-games-box table tr td{ padding-top:17px; padding-bottom:17px; color:#273238 }
+.past-games-box table tr td:last-child{ padding-right:20px }
+.text-success{ color:#4fc287 !important }
+.no-goals{ width:100%; padding:85px 0 53px; font-size:15px; color:#7b7b7b }
+.no-goals-icon{ width:64px; height:64px; display: inline-block; background:url('assets/no-goals.svg') no-repeat center; }
+.card-header{ padding-top:0.85rem; padding-bottom:0.85rem }
+
+/*AMS Coach - Past 5 Games Page Css Start------------------------------------------------------------------------------*/
+.teams-logo{ width:74px; height: auto; margin-bottom:8px }
+.team-score{ width:100%; height:100%; display: table }
+.team-score-inner{ width:100%; height:100%; display: table-cell; vertical-align: middle }
+.team-score-inner p{ padding-bottom:0; margin-bottom:0; font-size:36px; word-spacing:70px }
+.team-info p{ margin-bottom:0 }
+.game-details-data-table .ams-top-bar{ border-bottom:none;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none }
+.game-details-data-table .nav-tabs{ width:calc(100% + 28px); padding:0; margin-left:-14px !important; margin-right:-14px !important }
+.game-details-data-table .nav-tabs > li { border:none; padding:0 !important; margin:0 !important; list-style:none }
+.game-details-data-table .nav-tabs > li > a{ padding:0 12px 3px !important; margin:0 !important; display: block; border:none; color:#6d6d6d; background-color: inherit }
+.game-details-data-table .nav-tabs > li > a:hover, .game-details-data-table .nav-tabs > li > a.active{ color:#18b7f8; background-color: inherit; border:none; border-bottom: 2px solid #18b7f8 }
+.game-details-data-table .nav-tabs > li:hover{ padding:0 !important; margin:0 !important }
+.game-details-data-table .ams-card-divider{ padding-top:7px; padding-bottom:7px; background-color:#fff }
+.game-details-data-table .ams-card-divider h5{ font-size:15px; font-weight:400; color:#273238; margin-bottom:0 }
+
+/*Franchise Page - Dashboard Css Start --------------------------------------------------------------*/
+.league-details{ padding:75px 0 }
+.league-details img.league-logo{ width:154px; height:154px; display: block; margin:0 auto 8px }
+.league-details h2{ font-size:38px; line-height:34px; font-weight:400; color:#273238; background-color:inherit }
+.league-details p{ font-size:14px }
+.league-info-inner{ height:100%; padding:18px; overflow: hidden; background-color:#fff;
+	-webkit-border-radius: 4px;
+	-moz-border-radius: 4px;
+	border-radius:4px;
+	-webkit-box-shadow: #dbdbdb 0px 0px 5px;
+	-moz-box-shadow: #dbdbdb 0px 0px 5px;
+	box-shadow: #dbdbdb 0px 0px 5px }
+.league-info-inner p{ line-height:1.8; margin-bottom:0 }
+.league-info-inner a{ text-decoration:underline }
+.league-info-inner a:hover{ text-decoration:none }
+.btn-delete{ height:24px; line-height:24px; font-size:12px; display: inline-block; padding:0 5px; background-color: transparent; border:1px solid #4fc287; color:#4fc287;
+	-webkit-border-radius: 4px;
+	-moz-border-radius: 4px;
+	border-radius:4px }
+.btn-delete:hover{ color:#fff; background-color:#4fc287 }
+.fn-data-table-wrapper{ position: relative }
+.franchise-dropdown{ width:158px; position: absolute; top:0; right:0; z-index:2 }
+.franchise-dropdown button{ width:158px; padding:0 15px; text-align: left }
+.franchise-dropdown .dropdown-toggle:after{ position: absolute; top:17px; right:15px }
+.franchise-dropdown .dropdown-menu{ width:100% }
+.franchise-dropdown .dropdown-menu{ padding:0; font-size:14px }
+.franchise-dropdown .dropdown-menu .dropdown-item{ padding:7px 15px; border-bottom:1px solid #e4e4e4; color:#6d6d6d }
+.fn-data-table-wrapper div.dataTables_wrapper div.dataTables_filter label{ position: absolute; right:180px; top:0; z-index:1 }
+
+/*Franchise Page - Manage User Css Start --------------------------------------------------------------*/
+.deleteUserModal .btn{ margin:0 3px }
+
+/*Franchise Page - Edit Coach Css Start --------------------------------------------------------------*/
+.coach-img{ position: relative;
+-webkit-box-shadow: 0 0 4px #ccc;
+-moz-box-shadow: 0 0 4px #ccc;
+box-shadow:0 0 4px #ccc }
+.coach-img .icon{ width:34px; height:34px; text-align: center; line-height:34px; font-size:18px; position: absolute; bottom:12px; right:12px; background:#fff;
+-webkit-border-radius: 25px;
+-moz-border-radius: 25px;
+border-radius: 25px }
+.coach-img .icon:hover{ color:#fff; background-color:#4fc287 }
+
+/*Franchise Page - Create Coach Css Start --------------------------------------------------------------*/
+.btn-delete-row{ padding:0 12px; font-size:18px; line-height:33px; font-family:Verdana, Geneva, sans-serif; font-weight:300 }
+.btn-add-row{ margin:20px 0 20px 20px }
+.btn-create{ margin:0 }
+.create-player-table-wrapper{ position: relative }
+.select-team-wrapper{ width:318px; position: absolute; top:0; right:280px; z-index:2 }
+.select-team-wrapper label{ width:88px; line-height:34px; font-weight:500; font-size:14px; float:left }
+.select-team-wrapper .form-control{ width:228px; float:left }
+
+
+/*Franchise Page - Create Player Css Start --------------------------------------------------------------*/
+.create-player-table-wrapper div.dataTables_wrapper div.dataTables_paginate ul.pagination{ margin-right:110px; }
+.btn-create-player{ position: relative; top:-37px }
+.create-player-table-wrapper{}
+
+
+/*RADIO/CHECKMARK/SELECT STYLE*/
+.radio-group{ margin:5px 0 0 }
+input[type=checkbox]:not(old),
+input[type=radio   ]:not(old){ width :16px; margin : 0; padding : 0; font-size : 1em; opacity : 1 }
+input[type=checkbox]:not(old) + label,
+input[type=radio   ]:not(old) + label{ display: inline-block; margin-left  : -2em; line-height  :16px; margin-right:0; font-size: 14px }
+input[type=checkbox]:not(old) + label > span{ display : inline-block; width :16px; height :16px; margin :0 8px 0 8px; border :1px solid #cecece; border-radius : 3px; background : #fff; vertical-align : bottom }
+input[type=radio   ]:not(old) + label > span{ display : inline-block; width : 18px; height : 18px; margin : 0.25em 0.5em 0.25em 0.55em; border :1px solid #cecece; border-radius : 100%; background : #fff; vertical-align : middle }
+input[type=checkbox]:not(old):checked + label > span,
+input[type=radio   ]:not(old):checked + label > span{ background : rgb(255,255,255) }
+input[type=checkbox]:not(old):checked + label > span{ margin:0 8px 0 8px }
+input[type=checkbox]:not(old):checked + label > span:before{
+/*content     : '✓';*/ content : '\f00c'; font-family: 'FontAwesome'; display : block; width :14px;  height:16px; color :#4fc287; font-size :9px; line-height :16px; text-align : center;  text-shadow:none; font-weight : normal }
+input[type=radio]:not(old):checked +  label > span > span{ display : block; width : 6px; height :6px; margin : 5px; border : none; border-radius : 3px; background : rgb(128,128,128) }
+/* saf3+, chrome1+ */
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+    input[type=radio]:not(old):checked +  label > span > span{ margin:6px 6px 6px 5px }
+}
+
+/*Bootstrap Datepicker Css ------------------------------------------------------------------------------*/
+.form-control.datepicker{ background:url('assets/images/calendar-icon.png') no-repeat right center; }
+.datepicker.datepicker-dropdown{ min-width:250px }
+.datepicker table{ width:100% }
+.datepicker table tr th{ padding:5px 3px }
+.datepicker table tr td{ padding:5px 3px }
+.datepicker table tr:hover td{ background-color:transparent !important }
+.datepicker table tr td.today, .datepicker table tr td.today:hover, .datepicker table tr td.today.disabled, .datepicker table tr td.today.disabled:hover{ background:#273238 !important; background-color:#273238 !important; color:#fff !important }
+
+/*Switch Button Css ----------------------------------------------------------------------------------------- */
+.switch{position:relative;display:inline-block;width:48px;height:26px}
+.switch input{display:none}
+.slider{position:absolute;cursor:pointer;top:0;left:0;right:0;bottom:0;background-color:#ccc;-webkit-transition:.4s;transition:.4s}
+.slider:before{position:absolute;content:"";height:18px;width:18px;left:4px;bottom:4px;background-color:#fff;-webkit-transition:.4s;transition:.4s}
+input:checked + .slider{background-color:#4fc287}
+input:focus + .slider{box-shadow:0 0 1px #4fc287}
+input:checked + .slider:before{-webkit-transform:translateX(22px);-ms-transform:translateX(22px);transform:translateX(22px)}
+.slider.round{border-radius:34px}
+.slider.round:before{border-radius:50%}
+
+/*MANAGE FRANCHISE page Css Start*/
+.franchise-create-player-data-table-wrapper{ position: relative }
+.btn-create-franchise{ position: absolute; top:0; right:0; z-index:9 }
+.franchise-create-player-data-table-wrapper .dataTables_filter label{ margin-right:166px }
+
+/*Dashboard Page Css----------------------------------*/
+.graph-section .card-header{ background-color:#fff; border-bottom:none !important }
+.graph-section .img-fluid{ display: block; margin:0 auto }
+.upcoming-games .card-header{ border-bottom:1px solid rgba(0,0,0,0.125) }
+.graph-section .card{ margin-bottom:20px }
+
+/*Footer Start ----------------------------*/
+footer{ width:calc(100% - 225px); background:#CACCCD; padding:8px 0;position:fixed; bottom: 0; left:225px; z-index:9 }
+footer p{ font-size:13px; color:#666; text-align:center; padding-bottom:0; margin-bottom:0 }
+body.sticky footer{ width:100%; position:relative; left:0 }
+/*Header Team Info Section-------------------------------------*/
+.team-owner{ font-size:17px }
+.team-owner img{ width:34px; height:34px; }
+.profile-img{ width:32px; height:32px; margin-right:5px; background-color:#ccc; background-position: center !important; background-repeat: no-repeat !important; background-size:cover !important; display: inline-block; vertical-align: middle;
+-webkit-border-radius: 100%;
+-moz-border-radius: 100%;
+border-radius: 100% }
+
+/*Analytics Page Css Start-----------------------------------------*/
+.form-group-select-pitcher{ width:330px; float:right; margin:-30px 0 0; position: relative }
+.form-group-select-pitcher label{ width:110px; float: left; line-height:34px; padding-bottom:0; margin-bottom:0 }
+.form-group-select-pitcher .form-control{ width:220px; float: left; }
+.upload-csv-section{ overflow: hidden; background-color:#fff; padding:12px;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius:4px;
+  -webkit-box-shadow: #dbdbdb 0px 0px 5px;
+  -moz-box-shadow: #dbdbdb 0px 0px 5px;
+  box-shadow: #dbdbdb 0px 0px 5px }
+.content-inner{ padding:15px 14px }
+.upload-csv-section label span{ display: block; font-size:13px }
+.upload-section{ background-color:#FAFAFA; border:1px dashed #ccc; padding: 15px;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius:4px; }
+.edit-notes{ height:180px; padding:10px 0 0 15px; line-height:18px }
+
+/*Images Css Start --------------------------------------------*/
+.img-profile{ width:38px; height: 38px; float: left; margin:0 12px 5px 0; background-position:center !important; background-repeat:no-repeat !important; background-size:cover !important; background-color:#e5e5e5 !important ;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px }
+
+/*Custom Scrollbar Css Start ----------------------------------------*/
+#mynotes .scrollHeight{ height:230px; padding-top:15px }
+#analytics_notes .scrollHeight{ height:280px; padding-top:15px }
+#coach_notes .scrollHeight{ height:280px; padding-top:15px }
+#mynotes.tab-pane a.btn{ margin-top:15px }
+
+/* Row with equal height columns -----------------------*/
+.row-eq-height{ display: -webkit-box; display: -webkit-flex; display: -ms-flexbox; display:flex }
+
+/* Div Vertical Align Center-----------------------*/
+.vh{ width:100%; height:100vh; display:table }
+.vh-md{ width:100%; height:100%; display:table-cell; vertical-align:middle }
+
+a, .hamburger-menu span{
+  -webkit-transition: all 0.3s ease-in-out 0s;
+  -moz-transition: all 0.3s ease-in-out 0s;
+  -ms-transition: all 0.3s ease-in-out 0s;
+  -o-transition: all 0.3s ease-in-out 0s;
+  transition:all 0.3s ease-in-out 0s   }
+.hamburger-menu{ display:none }
+
+@media only screen and (max-width: 1198px) and (min-width: 1025px)  {
+	.plan-header{ padding:17px 15px }
+	.plan-header h4{ font-size:13px; line-height:26px }
+	.plan-header h4 span.icons{ width:30px; font-size:26px }
+	.plan-body{ padding:1.25rem 15px }
+}
+@media screen and (max-width: 1024px) {
+	.navbar.ams-top-bar{ height:52px }
+	/*Responsive Mobile Menu*/
+	.hamburger-menu { width:25px; position: fixed; top:14px; left:15px; z-index:99; cursor: pointer;display: block; margin:3px 0 0 }
+	.hamburger-menu span { background:#fff; display: block;height: 2px;margin-bottom: 5px;width: 100%;float:right; cursor: pointer }
+	.body-menu-open .hamburger-menu{ z-index: 999; top:21px }
+	.body-menu-open .hamburger-menu span{ height:2px; color:inherit; background-color:#fff  !important }
+	.body-menu-open .hamburger-menu span:first-child{ -ms-transform: rotate(50deg); /* IE 9 */
+	-webkit-transform: rotate(50deg); /* Safari */
+	transform: rotate(50deg) }
+	.body-menu-open .hamburger-menu span:nth-child(2){ display:none }
+	.body-menu-open .hamburger-menu span:last-child{ margin:-7px 0 0; -ms-transform: rotate(-50deg); /* IE 9 */
+	-webkit-transform: rotate(-50deg); /* Safari */
+	transform: rotate(-50deg) }
+
+	ul.nav-menu{ position: fixed; top:8px; right:15px }
+	#notifications .icon{ font-size:26px; color:#5f5f5f }
+	.notifications-menu{ left:-298px; top:42px }
+	.user .notifications-menu{  top:41px }
+
+	.ams-menu-bar{ background-color: #000 !important }
+	.navbar-toggler{ border-color:#6c757d !important }
+	#toggler{ z-index: 999; display:block !important }
+	.side-bar { top: 0; right: 0; left: 0; height: auto; width: 100%; z-index: 10 }
+	.side-bar .list-container {
+	/*now list container acts as side-bar so we apply same css rules as side bar here*/
+	position: fixed;  width: 16rem; height:calc(100% - 51px); top:51px; left: 0; background-color:#273238; padding: 0; margin-left: -18rem; transition: all 0.3s ease; overflow-y:auto }
+	.side-bar-light .list-container { background-color: #eee; border-right: none }
+	.side-bar .navbar { height:50px }
+	.side-bar-light .navbar { background: #ddd }
+	button#toggler{ border-color: #aaa !important }
+	.side-bar .navbar-brand { width:172px; margin: 2px 0 0 60px; padding:0 }
+	.bodyContent { margin-left: 0; transition: all 0.3s ease }
+	.list-toggler { margin-left: 0!important }
+	#notifications{ color: #fff }
+	.ams-display-inline{ display: none !important }
+	.ams-notification-text{ color: #273238 !important }
+	.side-bar .list-container ul li, .side-bar .navbar-brand{ border-bottom:none }
+	.side-bar{ border-bottom:1px solid #1b2429 }
+
+	.team-owner{ margin:0 auto; position: relative; z-index:99; color:#fff }
+
+  /*Footer Start ----------------------------*/
+  footer{ width:100%; position:fixed; bottom: 0; left:0 }
+  body.sticky footer{ width:100%; position:relative; left:0 }
+}
+@media screen and (max-width: 991px) {
+	.plan-header{ padding:17px 15px }
+	.plan-header h4{ font-size:13px; line-height:26px }
+	.plan-header h4 span.icons{ width:30px; font-size:26px }
+	.plan-body{ padding:1.25rem 15px }
+
+	.table thead th, .table th, .table td, .table td strong{ font-size:13px !important; line-height:14px }
+	.table td .ams-sub-title{ font-size:13px }
+	.modal-body-content{ min-height:auto }
+
+	.table-wrapper{ margin-bottom:15px }
+	.player-name{ padding-top:0 }
+
+	.ams-top-bar ul.nav-menu li:first-child ul.dropdown-menu{ width:100%; height:calc(100% - 51px); position: fixed; top:51px; left:0; border:none; overflow-y:auto }
+
+	.select-team-wrapper{ width:260px; right:240px }
+	.select-team-wrapper .form-control{ width:170px }
+
+	div.dataTables_wrapper div.dataTables_filter{ min-height:42px }
+
+	/*.table th, .table td{ vertical-align:top !important }*/
+  /*Custom Scrollbar Css Start */
+  #mynotes .scrollHeight, #analytics_notes .scrollHeight, #coach_notes .scrollHeight{ height:auto }
+}
+@media screen and (max-width: 767px) {
+	.profile-details{ padding:20px 0 }
+	.content-box{ margin-bottom:20px }
+	/*.weather-icon{ width:45px; margin:0 auto; float:none; display: block }
+	.weather-icon img{ width:30px; display: block; margin:0 auto }
+	.text-weather{ text-align:center; float:none; display: block }*/
+
+	div.dataTables_wrapper div.dataTables_length, div.dataTables_wrapper div.dataTables_filter, div.dataTables_wrapper div.dataTables_paginate{ text-align:left }
+	div.dataTables_wrapper div.dataTables_info{ text-align:center; padding-bottom:10px; padding-top:0 }
+
+	.plan-wrapper{ margin-bottom:15px }
+	.row-eq-height{ display: block }
+
+	ol.breadcrumb{ margin-bottom:10px !important }
+
+	.league-details{ padding:15px 0 }
+	.league-info .league-info-inner{ margin:15px 0 }
+
+	.fn-data-table-wrapper div.dataTables_wrapper div.dataTables_filter label{ position: relative; right: auto; top: inherit }
+
+	.create-table .form-control{ width:180px }
+	#fn-data-table.create-table .form-control{ width:auto }
+	.thead-none{ display:none }
+
+	table.create-coach-table tbody tr{ border-bottom:1px solid #ededed }
+	table.create-coach-table tbody tr th, table.create-coach-table tbody tr td{ width:100%; display: block; clear:both; border-bottom:none; padding-left:10px !important; padding-right:10px !important }
+	table.create-coach-table tbody tr td:last-child{ width: inherit; display: table-cell; clear: inherit; vertical-align:middle; text-align:center }
+	table.create-coach-table .btn-delete-row{ float:none !important; text-align:center }
+	.btn-add-row{ margin:10px }
+
+	.select-team-wrapper{ right:0 }
+	.email-address{ width:180px }
+	.team-owner{ display: none }
+
+  .form-group.form-notification{ width:100% !important; float:left !important; margin:0 !important }
+  .notification-filter .form-group label{ width:30% !important; line-height:24px; padding-top:4px; padding-right:1%; float: left }
+  .notification-filter .form-group .form-control{ width:70% !important; float: right }
+  .form-group.form-search{ width:100% !important; float:left !important; margin:0 0 10px !important }
+  .notification-filter .form-group.form-search label{ width:30% !important }
+  .notification-filter .form-group.form-search .form-control{ width:70% !important; float: right }
+}
+@media screen and (max-width: 725px) {
+	table.dataTable.dtr-inline.collapsed > tbody > tr[role="row"] > td:first-child:before, table.dataTable.dtr-inline.collapsed > tbody > tr[role="row"] > th:first-child:before{ top:4px }
+}
+@media screen and (max-width: 640px) {
+	.team-name{ display: block; clear:both }
+}
+@media (min-width: 576px){
+	.modal-dialog { max-width:404px }
+	.modal-sm{ max-width:304px }
+	.modal-lg{ max-width:800px }
+}
+@media screen and (max-width: 576px) {
+	.select-team-wrapper{ position: inherit; top: inherit; right: inherit }
+	.btn-create-player{ top:0 }
+}
+@media screen and (max-width: 480px) {
+	.side-bar .navbar-brand{ width:120px }
+	.side-bar .navbar-brand img{ width:120px; height:auto }
+	h5, .h5{ font-size:16px }
+	.franchise-dropdown{ margin-bottom:15px; clear:both }
+	#fn-data-table_wrapper{ width:100%; clear:both; display: block }
+}
+@media screen and (max-width: 479px) {
+	.notifications-menu{ width:230px; left:-204px }
+	.user .notifications-menu{ top:43px }
+
+	.chart-zone .nav-tabs > li{ width:100% }
+	.chart-zone .nav-tabs > li > a{ width:100%; margin-top:8px !important }
+
+	.league-details h2{ font-size:28px; line-height:28px }
+
+	.franchise-dropdown{ position: relative; top: inherit; right: inherit; float: left }
+	.btn-create-franchise{ position: relative; top: inherit; right: inherit; float: left; margin-bottom:15px }
+	#fn-create-player-data-table_wrapper{ width:100%; clear:both; display: block }
+  .notification-filter .form-group label{ width:100% !important; float:none }
+  .notification-filter .form-group .form-control{ width:100% !important; float:none }
+  .notification-filter .form-group.form-search label{ width:100% !important; float:none }
+  .notification-filter .form-group.form-search .form-control{ width:100% !important; float:none }
+
+  .form-signin{ padding:15px }
+  .login-logo{ width:100%; height:auto }
+}
+#dropzone{background:#98fb98;width:150px;height:50px;line-height:50px;text-align:center;font-weight:700}
+#dropzone.in{width:600px;height:200px;line-height:200px;font-size:larger}
+#dropzone.hover{background:#7cfc00}
+#dropzone.fade{-webkit-transition:all .3s ease-out;-moz-transition:all .3s ease-out;-ms-transition:all .3s ease-out;-o-transition:all .3s ease-out;transition:all .3s ease-out;opacity:1}
+.required-field:after {
+    color: red;
+    content: "*";
+    font-size: 18px;
+}
