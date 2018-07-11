@@ -7,6 +7,7 @@ function mainCtrl($scope, $rootScope, $location, $timeout, $filter,$window, $htt
     $scope.flag=false;
     $scope.records=[];
     $scope.exportData=[];
+    
     $scope.prefinit = function() {
         if ($scope.intervalObj)
             $interval.cancel($scope.intervalObj);
@@ -17,9 +18,27 @@ function mainCtrl($scope, $rootScope, $location, $timeout, $filter,$window, $htt
             $interval.cancel($scope.intervalObj);
     }
     
-    $scope.init = function() {
+    $scope.initFunc = function() {
+    	  $http.get("/elastic/get/1")
+    	  .then(function(response){
+    		  console.log("----response data--"+response.data);
+    		  $scope.details = response.data;
+    		  $scope.gridData = [];
+    		  if ($scope.details.hits !== undefined && $scope.details.hits.total !== undefined && $scope.details.hits.total >0) {
+    			  $scope.gridData = $scope.details.hits.hits;
+    			  var eGridDiv = document.querySelector('#bestHtml5Grid');
+    		        new agGrid.Grid(eGridDiv, gridOptions);
+//    		        if (btBringGridBack) {
+//    		            btBringGridBack.disabled = true;
+//    		            btDestroyGrid.disabled = false;
+//    		        }
+    		        // createRowData is available in data.js
+    		        gridOptions.api.setRowData($scope.gridData);
+    			  console.log('----array Data'+$scope.gridData);
+    		  }
+    		  });
     }
-    
+    $scope.initFunc();
    // $scope.getDropDownValues = function() {
     	
     //}
@@ -65,7 +84,7 @@ function mainCtrl($scope, $rootScope, $location, $timeout, $filter,$window, $htt
         // we don't display the buttons, so we check for the buttons existance
         if (btBringGridBack) {
             btBringGridBack.addEventListener('click', onBtBringGridBack);
-            btDestroyGrid.addEventListener('click', onBtDestroyGrid);
+            btDestroyGrid.addsventListener('click', onBtDestroyGrid);
         }
 
         addQuickFilterListener();
@@ -219,19 +238,17 @@ function mainCtrl($scope, $rootScope, $location, $timeout, $filter,$window, $htt
     ];*/
     var columnDefs = [
         //{headerName: "id", field: "id", width: 150},
-        {headerName: "assetId", field: "assetId", width: 140,headerCheckboxSelection: true, headerCheckboxSelectionFilteredOnly: true,
+        {headerName: "assetId", field: "_source.AssetID", 
+        	width: 140,headerCheckboxSelection: true, headerCheckboxSelectionFilteredOnly: true,
             checkboxSelection: true,suppressMovable: true},
-        {headerName: "endDate", field: "endDate", width: 120,
+        {headerName: "endDate", field: "_source.Contracts[0].EndDate", width: 120
+        },
+        {headerName: "endofLife", field: "_source.EOLA", width: 120,
     	  	cellFormatter: function(data) {
         	    return moment(data.value).format('L');
         	}
         },
-        {headerName: "endofLife", field: "endofLife", width: 120,
-    	  	cellFormatter: function(data) {
-        	    return moment(data.value).format('L');
-        	}
-        },
-        {headerName: "eolAnnoucement", field: "eolAnnoucement", width: 140},
+        {headerName: "eolAnnoucement", field: "EOLA", width: 140},
         {headerName: "install", field: "install", width: 110},
         {headerName: "installDate", field: "installDate", width: 110,
     	  	cellFormatter: function(data) {
@@ -247,6 +264,10 @@ function mainCtrl($scope, $rootScope, $location, $timeout, $filter,$window, $htt
     var gridOptions = {
         columnDefs: columnDefs,
         pagination: true,
+        enableColResize: true,
+        onColumnResized: function(params) {
+            console.log(params);
+        },
         paginationAutoPageSize: true,
         enableFilter: true,
         enableSorting: true,
